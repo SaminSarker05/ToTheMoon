@@ -15,8 +15,10 @@ class Candle {
   void display() {
     if (open > close) {
       int height = (int) (open - close);
-      rect(100, 100, 25, 100 - height);
+      rect(100, 100, 24, 100 - height);
       fill(0, 255, 0);
+      int diff = (int) (high - open);
+      line(112, 100 - diff, 112, 100);
     }
     
   }
