@@ -4,7 +4,7 @@ class Candle {
   double open;
   double close;
   
-  Candle(double top, double bottom, double op, double cl) {
+  public Candle(double top, double bottom, double op, double cl) {
     high = top;
     low = bottom;
     open = op;
@@ -12,5 +12,13 @@ class Candle {
     
   }
   
+  void display() {
+    if (open > close) {
+      int height = (int) (open - close);
+      rect(100, 100, 25, 100 - height);
+      fill(0, 255, 0);
+    }
+    
+  }
   
 }
