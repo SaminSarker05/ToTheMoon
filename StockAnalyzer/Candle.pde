@@ -42,7 +42,8 @@ public class Candle {
     }
   }
   
-  float getHigh(){
-    return (float) this.high;
+  float getHeight(){
+    if (close >= open) return (float) this.close;
+    else return (float) this.open;
   }
 }

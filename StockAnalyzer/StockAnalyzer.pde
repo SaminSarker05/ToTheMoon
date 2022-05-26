@@ -2,7 +2,7 @@ char mode;
 String ticker;
 
 void setup() {
-  size(1000, 1000);
+  size(1000, 800);
   background(255);
   //                    high low open close
   Candle a = new Candle(155.0, 20.0, 70.0, 100.0);
@@ -13,16 +13,14 @@ void setup() {
   Candle f = new Candle(180.0, 20.0, 40.0, 80.0);
   Candle h = new Candle(180.0, 25.0, 90.0, 95.0);
   Candle i = new Candle(100.0, 10.0, 100.0, 90.0);
-  a.display(25, a.getHigh());
-  b.display(50, b.getHigh());
-  c.display(75, c.getHigh());
-  d.display(100, d.getHigh());
-  e.display(125, e.getHigh());
-  f.display(150, f.getHigh());
-  h.display(175, h.getHigh());
-  i.display(200, i.getHigh());
-  
-  
+  a.display(25, 400 - a.getHeight());
+  b.display(50, 400 -b.getHeight());
+  c.display(75, 400 - c.getHeight());
+  d.display(100, 400 -d.getHeight());
+  e.display(125, 400 -e.getHeight());
+  f.display(150, 400 -f.getHeight());
+  h.display(175, 400 -h.getHeight());
+  i.display(200, 400 -i.getHeight());
 }
 
 void draw() {
