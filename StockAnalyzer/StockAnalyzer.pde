@@ -13,14 +13,14 @@ void setup() {
   Candle f = new Candle(180.0, 20.0, 40.0, 80.0);
   Candle h = new Candle(180.0, 25.0, 90.0, 95.0);
   Candle i = new Candle(100.0, 10.0, 100.0, 90.0);
-  a.display(25, 400 - a.getHeight());
-  b.display(50, 400 -b.getHeight());
-  c.display(75, 400 - c.getHeight());
-  d.display(100, 400 -d.getHeight());
-  e.display(125, 400 -e.getHeight());
-  f.display(150, 400 -f.getHeight());
-  h.display(175, 400 -h.getHeight());
-  i.display(200, 400 -i.getHeight());
+  a.display(25);
+  b.display(50);
+  c.display(75);
+  d.display(100);
+  e.display(125);
+  f.display(150);
+  h.display(175);
+  i.display(200);
 }
 
 void draw() {

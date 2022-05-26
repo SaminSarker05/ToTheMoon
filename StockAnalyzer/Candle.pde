@@ -12,8 +12,8 @@ public class Candle {
     this.close = close;
   }
   
-  void display(int xcor, float ycor) {
-    
+  void display(int xcor) {
+    float ycor = 400 - getHeight();
    
     if (close >= open) {
       float height = (float) (close - open);
