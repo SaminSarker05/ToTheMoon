@@ -1,13 +1,18 @@
-public Tools(int xPlace, int yPlace){
-    mouseX = xPlace;
-    mouseY = yPlace;
+public class Tools {
+  int mouseX;
+  int mouseY;
+  
+  public Tools(int xPlace, int yPlace){
+   mouseX = xPlace;
+   mouseY = yPlace;
   
   //values below are place holder for real values
-  void display() {
+   void display() {
     boolean rightCol = (mouseX >= 100 && mouseX <= 200);
     if (rightCol && mouseY >= 100 && mouseY <= 200) {
       marker();
     } 
+  }
     /*else if (rightCol && mouseY >= 250 && mouseY <= 350) {
       
     } else if (rightCol && mouseY >= 400 && mouseY <= 500) {
@@ -33,5 +38,4 @@ public Tools(int xPlace, int yPlace){
   void trendLine() {
     stroke(51, 255, 255);
   }
-
 }
