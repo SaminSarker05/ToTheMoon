@@ -1,10 +1,12 @@
-int candleWidth = 16;
+
 
 public class Candle {
-  double high;
-  double low; 
-  double open;
-  double close;
+  private int candleWidth = 16;
+  private boolean COLOR = true;
+  private double high;
+  private double low; 
+  private double open;
+  private double close;
   
   public Candle(double high, double low, double open, double close) {
     this.high = high;
@@ -13,21 +15,21 @@ public class Candle {
     this.close = close;
   }
   
-  void display() {
-    if (open > close) {
-      float height = (float) (open - close);
-      System.out.println(height);
-      rect(100, 100, candleWidth, 100 - height);
-      fill(0, 255, 0);
+  void display(int xcor, int ycor) {
+    if (close > open) {
+      float height = (float) (close - open);
+      rect(xcor, ycor, candleWidth, height);
       float topWick = (float) (high - close);
-      System.out.println(topWick);
-      line(100 + candleWidth/2, 100 - topWick, 100 + candleWidth/2, 100);
+      line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
       float bottomWick = (float) (open-low);
-      System.out.println(bottomWick);
-      line(100 + candleWidth/2, 100 + bottomWick, 100 + candleWidth/2, 100+ height);
-      
-    }
+      line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+    } 
     
+    if (COLOR) fill(0,255,0);
+    else fill (255, 0,0 );
   }
   
+  float getHigh(){
+    return (float) this.high;
+  }
 }
