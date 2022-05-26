@@ -1,4 +1,4 @@
-class Candle {
+public class Candle {
   double high;
   double low; 
   double open;
