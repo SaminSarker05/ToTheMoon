@@ -7,7 +7,7 @@ void setup() {
   
 }
 
-void draw() {
+void draw() {//                    
   Candle c = new Candle(100.0, 50.0, 90.0, 70.0);
   c.display();
 }
