@@ -10,19 +10,22 @@ public class Tools {
   //values below are place holder for real values
   void display() {
     boolean rightCol = (mouseX >= 100 && mouseX <= 200);
-    if (righCol && mouseY >= 100 && mouseY <= 200) {
-    
-    } else if (100) {
+    if (rightCol && mouseY >= 100 && mouseY <= 200) {
       
-    } else if () {
+    } else if (rightCol && mouseY >= 250 && mouseY <= 350) {
       
-    } else if () {
+    } else if (rightCol && mouseY >= 400 && mouseY <= 500) {
       
-    } else if () {
+    } else if (rightCol && mouseY >= 550 && mouseY <= 650) {
       
-    } else if () {
+    } else if (rightCol && mouseY >= 700 && mouseY <= 800) {
+      
+    } else if (rightCol && mouseY >= 850 && mouseY <= 950) {
       
     }
+  }
+  
+  void marker() {
   }
 
 }
