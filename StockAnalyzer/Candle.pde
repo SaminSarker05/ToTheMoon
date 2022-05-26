@@ -1,5 +1,3 @@
-
-
 public class Candle {
   private int candleWidth = 16;
   private boolean COLOR = true;
@@ -17,13 +15,23 @@ public class Candle {
   
   void display(int xcor, int ycor) {
     if (close > open) {
+      System.out.println("hehe");
       float height = (float) (close - open);
       rect(xcor, ycor, candleWidth, height);
+      
       float topWick = (float) (high - close);
       line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
       float bottomWick = (float) (open-low);
       line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
-    } 
+    } else {
+      float height = (float) (open - close);
+      rect(xcor, ycor, candleWidth, height);
+      COLOR = false;
+      float topWick = (float) (high - open);
+      line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
+      float bottomWick = (float) (close-low);
+      line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+    }
     
     if (COLOR) fill(0,255,0);
     else fill (255, 0,0 );
