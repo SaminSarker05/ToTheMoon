@@ -13,11 +13,10 @@ public class Candle {
   }
   
   void display(int xcor, float ycor) {
-    if (close > open) {
+    if (close >= open) {
       float height = (float) (close - open);
       fill (0, 255, 0);
       rect(xcor, ycor, candleWidth, height);
-      System.out.println("green");
       float topWick = (float) (high - close);
       line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
       float bottomWick = (float) (open-low);
@@ -26,11 +25,11 @@ public class Candle {
       float height = (float) (open - close);
       fill (255, 0, 0);
       rect(xcor, ycor, candleWidth, height);
-      System.out.println("red");
       float topWick = (float) (high - open);
       line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
       float bottomWick = (float) (close-low);
       line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+      stroke();
     }
     
   }
