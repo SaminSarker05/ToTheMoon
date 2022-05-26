@@ -11,8 +11,9 @@ public class Tools {
   void display() {
     boolean rightCol = (mouseX >= 100 && mouseX <= 200);
     if (rightCol && mouseY >= 100 && mouseY <= 200) {
-      
-    } else if (rightCol && mouseY >= 250 && mouseY <= 350) {
+      marker();
+    } 
+    /*else if (rightCol && mouseY >= 250 && mouseY <= 350) {
       
     } else if (rightCol && mouseY >= 400 && mouseY <= 500) {
       
@@ -24,8 +25,13 @@ public class Tools {
       
     }
   }
-  
+  */
   void marker() {
+    stroke(51, 255, 255);
+    if (mousePressed == true) {
+      line(mouseX, mouseY, pmouseX, pmouseY);
+    }
+    
   }
 
 }
