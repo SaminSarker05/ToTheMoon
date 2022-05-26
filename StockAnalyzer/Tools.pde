@@ -1,11 +1,6 @@
-public class Tools {
-  int mouseX;
-  int mouseY;
-  //in StockAnalyzer class, mouseClicked() is going to create an instance of tool, passing in current x and y mouse positions.
-  public Tools(int xPlace, int yPlace){
+public Tools(int xPlace, int yPlace){
     mouseX = xPlace;
     mouseY = yPlace;
-  }
   
   //values below are place holder for real values
   void display() {
@@ -24,14 +19,19 @@ public class Tools {
     } else if (rightCol && mouseY >= 850 && mouseY <= 950) {
       
     }
+    */
   }
-  */
-  void marker() {
+
+  
+   void marker() {
     stroke(51, 255, 255);
     if (mousePressed == true) {
       line(mouseX, mouseY, pmouseX, pmouseY);
     }
-    
+   }
+  
+  void trendLine() {
+    stroke(51, 255, 255);
   }
 
 }
