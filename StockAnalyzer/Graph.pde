@@ -6,17 +6,18 @@ public class Graph {
   //private int[] prices;
   
   public Graph(){
-    int xcor = 5;
+    rect(5.0, 5.0, 1015.0, 800.0);
+    int xcor = 1010;
     retrieve();
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor);
-      xcor += 10;
+      xcor -= 10;
     }
   }
   
   void retrieve() {
     String[] lines = loadStrings("TSLA.csv");
-    for (int i = 0 ; i < lines.length; i++) {
+    for (int i = lines.length-1 ; i >= 0; i--) {
       String[] data = lines[i].split(",");
       float open = Float.parseFloat(data[1]);
       float high = Float.parseFloat(data[2]);

@@ -1,5 +1,5 @@
 public class Candle {
-  private int candleWidth = 4;
+  private float candleWidth = 3.5;
   private double high;
   private double low; 
   private double open;
