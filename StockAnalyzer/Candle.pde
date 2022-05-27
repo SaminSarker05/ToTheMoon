@@ -20,7 +20,8 @@ public class Candle {
       float topWick = (float) (high - close);
       float bottomWick = (float) (open - low);
       
-      fill (255, 255, 255);
+      fill (5, 245, 233);
+      stroke(5, 245, 233);
       rect(xcor, ycor, candleWidth, height);
       
       line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
@@ -30,9 +31,10 @@ public class Candle {
       float topWick = (float) (high - open);
       float bottomWick = (float) (close-low);
       
-      fill (0, 0, 0);
+      fill (255, 87, 51);
+      stroke(255, 87, 51);
       rect(xcor, ycor, candleWidth, height);
- 
+     
       line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
       line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
     }

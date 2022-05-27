@@ -6,6 +6,7 @@ public class Graph {
   //private int[] prices;
   
   public Graph(){
+    fill(24, 46, 61);
     rect(5.0, 5.0, 1015.0, 800.0);
     int xcor = 1010;
     retrieve();
