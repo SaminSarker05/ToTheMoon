@@ -6,6 +6,7 @@ public class Tools {
   public Tools (float xplacement, float yplacement) {
     this.xplacement = xplacement;
     this.yplacement = yplacement;
+    mode = "none";
     
     boolean rightCol = (xplacement >= 100 && yplacement <= 200);
     if (rightCol && yplacement >= 100 && yplacement <= 200) {
