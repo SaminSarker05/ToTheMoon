@@ -8,24 +8,14 @@ void setup() {
 
 void draw() {
   //Candle c = new Candle(100.0, 50.0, 90.0, 70.0);
-  //c.display();\
-  if (mousePressed == true) {
-    boolean rightCol = (mouseX >= 100);
-    if (rightCol && mouseY >= 100 && mouseY <= 200) {
+  //c.display();
+  if ((mouseX >= 100 && mouseX <= 100) && (mouseY >= 100 && mouseY <= 200)) {
+    if (mousePressed == true) {
       mode = "marker";      
-    } else if (rightCol && mouseY >= 250 && mouseY <= 350) {
-      //
-    } else if (rightCol && mouseY >= 400 && mouseY <= 500) {
-      //
-    } else if (rightCol && mouseY >= 550 && mouseY <= 650) {
-      //
-    } else if (rightCol && mouseY >= 700 && mouseY <= 800) {
-      //
-    } else {
-      //
     } 
+  } else {
+    mode = "none";
   }
-  Tools x = new Tools(mouseX, mouseY, mode);
+  Tools x = new Tools(mode);
   x.display();
-  
 }

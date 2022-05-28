@@ -1,11 +1,7 @@
 public class Tools {
-  private float xplacement;
-  private float yplacement;
   private String mode;
 
-  public Tools (float xplacement, float yplacement, String mode) {
-    this.xplacement = xplacement;
-    this.yplacement = yplacement;
+  public Tools (String mode) {
     this.mode = mode;
   }
   
@@ -17,6 +13,11 @@ public class Tools {
         line(mouseX, mouseY, pmouseX, pmouseY);
       }
     }
+    
+    if (mode.equals("trendline")) {
+      
+    }
+    
   }
 
 }
