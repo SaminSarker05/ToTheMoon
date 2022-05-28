@@ -4,7 +4,8 @@ String ticker;
 void setup() {
   size(1000, 1000);
   background(255);
-  
+  Tools x = new Tools(mouseX, mouseY);
+  x.display();
 }
 
 void draw() {
