@@ -1,4 +1,4 @@
-char mode;
+String mode;
 String ticker;
 
 void setup() {
@@ -9,14 +9,23 @@ void setup() {
 void draw() {
   //Candle c = new Candle(100.0, 50.0, 90.0, 70.0);
   //c.display();\
-  if (mode == 'o') {
-    if ((mouseX >= 100 && mouseY <= 200) && (mouseX >= 100 && mouseY <= 200)) {
-      Tools x = new Tools(mouseX, mouseY);
-      x.display();
-    }
+  if (mousePressed == true) {
+    boolean rightCol = (mouseX >= 100);
+    if (rightCol && mouseY >= 100 && mouseY <= 200) {
+      mode = "marker";      
+    } else if (rightCol && mouseY >= 250 && mouseY <= 350) {
+      //
+    } else if (rightCol && mouseY >= 400 && mouseY <= 500) {
+      //
+    } else if (rightCol && mouseY >= 550 && mouseY <= 650) {
+      //
+    } else if (rightCol && mouseY >= 700 && mouseY <= 800) {
+      //
+    } else {
+      //
+    } 
   }
-}
-
-void mousePressed() {
-  mode = 'o';
+  Tools x = new Tools(mouseX, mouseY, mode);
+  x.display();
+  
 }
