@@ -8,8 +8,12 @@ public class Graph {
   }
   
   void start() {
-    fill(255);
-    int xcor = 1200;
+    fill(200);
+    rect(40.0, 40.0, 1100.0, 680.0);
+    
+    
+    
+    int xcor = 1100;
     retrieve();
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
@@ -31,7 +35,12 @@ public class Graph {
   }
     
   void shiftCandles(int dirX, int dirY) {
+
     background(255);
+    fill(200);
+    stroke(255);
+    rect(40.0, 40.0, 1100.0, 680.0);
+    
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
       int currentY = Candles.get(i).getYCor();

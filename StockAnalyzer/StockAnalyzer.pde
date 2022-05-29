@@ -5,13 +5,13 @@ int currX;
 int currY;
 
 void setup() {
-  size(1200, 820);
+  size(1200, 750);
   background(255);
   instance.start();
 }
 
-void draw() {  
-
+void draw(){
+  //rect(40.0, 40.0, 1000.0, 650.0);
 }
 
 void mousePressed(){
