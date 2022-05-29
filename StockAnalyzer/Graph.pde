@@ -6,13 +6,15 @@ public class Graph {
   //private int[] prices;
   
   public Graph(){
-    fill(24, 46, 61);
-    rect(5.0, 5.0, 1015.0, 800.0);
-    int xcor = 1010;
+  }
+  
+  void start() {
+    fill(255);
+    int xcor = 1200;
     retrieve();
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor);
-      xcor -= 10;
+      xcor -= 5;
     }
   }
   
@@ -26,6 +28,15 @@ public class Graph {
       float close = Float.parseFloat(data[4]);
       Candle temp = new Candle(high, low, open, close);
       Candles.add(temp);
+    }
+  }
+    
+  void shiftCandles(int dirX, int dirY) {
+    //background(255);
+    for (int i = 0; i < Candles.size(); i++){
+      //int currentX = Candles.get(i).getXCor();
+      //int currentY = Candles.get(i).getYCor();
+      Candles.get(i).update(dirX, dirY);
     }
   }
 }
