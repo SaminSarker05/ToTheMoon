@@ -6,7 +6,6 @@ int currY;
 
 void setup() {
   size(1200, 820);
-  //fullScreen();
   background(255);
   instance.start();
 }

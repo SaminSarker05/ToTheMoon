@@ -3,8 +3,7 @@ String line;
 
 public class Graph {
   private ArrayList<Candle> Candles = new ArrayList<Candle>();
-  //private int[] prices;
-  
+
   public Graph(){
   }
   
@@ -34,9 +33,9 @@ public class Graph {
   void shiftCandles(int dirX, int dirY) {
     background(255);
     for (int i = 0; i < Candles.size(); i++){
-      //int currentX = Candles.get(i).getXCor();
-      //int currentY = Candles.get(i).getYCor();
-      Candles.get(i).display((int) Candles.get(i).xcor + dirX, (int)Candles.get(i).ycor + dirY);
+      int currentX = Candles.get(i).getXCor();
+      int currentY = Candles.get(i).getYCor();
+      Candles.get(i).display((int) currentX + dirX, currentY + dirY);
     }
   }
 }
