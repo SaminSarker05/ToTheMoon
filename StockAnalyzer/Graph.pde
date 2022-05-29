@@ -13,7 +13,7 @@ public class Graph {
     int xcor = 1200;
     retrieve();
     for (int i = 0; i < Candles.size(); i++){
-      Candles.get(i).display(xcor);
+      Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
       xcor -= 5;
     }
   }
@@ -32,11 +32,11 @@ public class Graph {
   }
     
   void shiftCandles(int dirX, int dirY) {
-    //background(255);
+    background(255);
     for (int i = 0; i < Candles.size(); i++){
       //int currentX = Candles.get(i).getXCor();
       //int currentY = Candles.get(i).getYCor();
-      Candles.get(i).update(dirX, dirY);
+      Candles.get(i).display((int) Candles.get(i).xcor + dirX, (int)Candles.get(i).ycor + dirY);
     }
   }
 }

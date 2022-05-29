@@ -4,8 +4,8 @@ public class Candle {
   private double low; 
   private double open;
   private double close;
-  private float xcor;
-  private float ycor;
+  public float xcor;
+  public float ycor = 1300 - getHeight();
   
   public Candle(double high, double low, double open, double close) {
     this.high = high;
@@ -14,9 +14,9 @@ public class Candle {
     this.close = close;
   }
   
-  void display(int xCor) {
+  void display(int xCor, int yCor) {
     this.xcor = xCor;
-    this.ycor = 1300 - getHeight();
+    this.ycor = yCor;
 
     if (close >= open) {
       float height = (float) (close - open);
@@ -48,9 +48,9 @@ public class Candle {
     else return (float) this.open;
   }
   
-  int getXCor(){
-    return (int) this.xcor;
-  }
+  //int getXCor(){
+  //  return (int) this.xcor;
+  //}
   
   //void setX (float x){
   //  this.xcor = x;
@@ -60,12 +60,8 @@ public class Candle {
   //  this.ycor = y;
   //}
   
-  void update(int X, int Y) {
-    this.xcor += X;
-    this.ycor += Y;
-  }
   
-  int getYCor(){
-    return (int) this.ycor;
-  }
+  //int getYCor(){
+  //  return (int) this.ycor;
+  //}
 }
