@@ -12,7 +12,7 @@ public class Tools {
     if (mode.equals("Marker")) {
       stroke(51, 255, 255);
       if (mousePressed) {
-        strokeWeight(3);
+        strokeWeight(2);
         line(mouseX, mouseY, pmouseX, pmouseY);
       }
     }

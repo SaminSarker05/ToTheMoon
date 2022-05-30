@@ -49,12 +49,10 @@ void draw(){
     sx = mouseX;
     sy = mouseY;
     x.displayTrendLineOne(sx, sy);
-  } else {
+  } else if (mousePressed && fpoint) {
     x.displayTrendLineTwo(sx, sy);
   }
   fpoint = !fpoint;
-  sx = -1;
-  sy = -1;
 }
 
 void mousePressed(){
