@@ -23,7 +23,6 @@ void draw(){
     mouseOnButton = true;
     fill(0);
     text("Marker", 134, 150);
-    Tools x = new Tools(mode);
   } else if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)) {
     cursor(CROSS);
     mouseOnButton = false;
@@ -31,13 +30,18 @@ void draw(){
     cursor(ARROW);
     mouseOnButton = false;
   }
+  
+  Tools x = new Tools(mode);
+  
 }
 
 void mousePressed(){
   currX = mouseX;
   currY = mouseY;
-  if (mouseOnButton) {
-    mode = "marker";
+  if (mouseOnButton && mode.equals("Pointer")) {
+    mode = "Marker";
+  } else if (mouseOnButton && mode.equals("Marker")) {
+    mode = "Pointer";
   }
 }
 

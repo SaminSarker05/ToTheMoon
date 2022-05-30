@@ -8,9 +8,9 @@ public class Tools {
   }
   
   void display() {
-    if (mode.equals("marker")) {
+    if (mode.equals("Marker")) {
+      stroke(51, 255, 255);
       if (mousePressed == true) {
-        stroke(51, 255, 255);
         strokeWeight(12);
         line(mouseX, mouseY, pmouseX, pmouseY);
       }
