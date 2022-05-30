@@ -5,6 +5,7 @@ int currX;
 int currY;
 int mouseOnButton;
 boolean fpoint = false;
+int sx, sy;
 
 void setup() {
   size(1200, 750);
@@ -44,12 +45,16 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
-  if (!fpoint) {
-    x.displayTrendLineOne();
+  if (mousePressed && !fpoint) {
+    sx = mouseX;
+    sy = mouseY;
+    x.displayTrendLineOne(sx, sy);
   } else {
-    
+    x.displayTrendLineTwo(sx, sy);
   }
   fpoint = !fpoint;
+  sx = -1;
+  sy = -1;
 }
 
 void mousePressed(){

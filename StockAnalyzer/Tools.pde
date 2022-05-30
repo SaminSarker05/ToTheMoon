@@ -18,33 +18,22 @@ public class Tools {
     }
   }
     
-   void displayTrendLineOne() {
-      if (mode.equals("TrendLine")) {
-        cursor(HAND);
-        if (!fpoint) {
-         int sx = -1;
-         int sy = -1;
-         if (mousePressed && (sx == -1 && sy == -1)) {
-           sx = mouseX;
-           sy = mouseY;
-           fill(255,0,0);
-           circle(sx, sy, 12.0);
-         }
-        } else {
-          if () {
-          }
-        }
-
-        if (mousePressed && (mouseX != sx || mouseY != sy)){
-  
-            fill(0,255,0);
-            circle(mouseX, mouseY, 12.0);      
-            stroke(0);
-            line(sx, sy, mouseX, mouseY);
-            sx = -1;
-            sy = -1;
-          } 
-     }
+   void displayTrendLineOne(int sx, int sy) {
+    if (mode.equals("TrendLine")) {
+      cursor(HAND);
+      fill(255,0,0);
+      circle(sx, sy, 12.0);
+    }
+   }
+   
+   void displayTrendLineTwo(int sx, int sy) {
+    if (mode.equals("TrendLine")) {
+      cursor(HAND);
+      fill(0,255,0);
+      circle(mouseX, mouseY, 12.0);
+      stroke(0);
+      line(sx, sy, mouseX, mouseY);
+    }
    }
    
 }
