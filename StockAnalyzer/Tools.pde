@@ -1,13 +1,14 @@
 public class Tools {
   
   private String mode;
+  private boolean fpoint;
 
-  public Tools (String mode) {
+  public Tools (String mode, boolean fpoint) {
     this.mode = mode;
-    display();
+    this.fpoint = fpoint;
   }
   
-  void display() {
+  void displayMarker() {
     if (mode.equals("Marker")) {
       stroke(51, 255, 255);
       if (mousePressed) {
@@ -15,22 +16,25 @@ public class Tools {
         line(mouseX, mouseY, pmouseX, pmouseY);
       }
     }
+  }
     
-    if (mode.equals("TrendLine")) {
-       boolean running = false;
-       cursor(HAND);
-       int sx = -1;
-       int sy = -1;
-       if (mousePressed && (sx == -1 && sy == -1)) {
-          sx = mouseX;
-          sy = mouseY;
-          fill(255,0,0);
-          circle(sx, sy, 12.0);
-          running = true;
-       }
-      for (int i = 0; i < 100; i++) {
-      
-      
+   void displayTrendLineOne() {
+      if (mode.equals("TrendLine")) {
+        cursor(HAND);
+        if (!fpoint) {
+         int sx = -1;
+         int sy = -1;
+         if (mousePressed && (sx == -1 && sy == -1)) {
+           sx = mouseX;
+           sy = mouseY;
+           fill(255,0,0);
+           circle(sx, sy, 12.0);
+         }
+        } else {
+          if () {
+          }
+        }
+
         if (mousePressed && (mouseX != sx || mouseY != sy)){
   
             fill(0,255,0);
@@ -39,13 +43,8 @@ public class Tools {
             line(sx, sy, mouseX, mouseY);
             sx = -1;
             sy = -1;
-            running = false;
-          }
-          
-        }
-      
-      
+          } 
      }
-  }
+   }
    
 }

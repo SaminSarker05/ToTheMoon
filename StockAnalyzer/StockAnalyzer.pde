@@ -4,6 +4,7 @@ Graph instance = new Graph();
 int currX;
 int currY;
 int mouseOnButton;
+boolean fpoint = false;
 
 void setup() {
   size(1200, 750);
@@ -41,7 +42,14 @@ void draw(){
     cursor(ARROW);
     mouseOnButton = -1;
   }
-  Tools x = new Tools(mode);
+  Tools x = new Tools(mode, fpoint);
+  x.displayMarker();
+  if (!fpoint) {
+    x.displayTrendLineOne();
+  } else {
+    
+  }
+  fpoint = !fpoint;
 }
 
 void mousePressed(){
