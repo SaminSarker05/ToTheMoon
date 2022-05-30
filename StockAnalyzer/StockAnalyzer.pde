@@ -30,9 +30,7 @@ void draw(){
     cursor(ARROW);
     mouseOnButton = false;
   }
-  
   Tools x = new Tools(mode);
-  
 }
 
 void mousePressed(){
@@ -44,7 +42,6 @@ void mousePressed(){
     mode = "Pointer";
   }
 }
-
 
 void mouseDragged() {
   if (mode.equals("Pointer")) {
