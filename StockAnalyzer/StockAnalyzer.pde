@@ -11,7 +11,10 @@ void setup() {
 }
 
 void draw(){
-  //rect(40.0, 40.0, 1000.0, 650.0);
+  if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)){
+    cursor(CROSS);
+    //line(0.0, mouseX, mouseY ,0);
+  } else cursor(ARROW);
 }
 
 void mousePressed(){
