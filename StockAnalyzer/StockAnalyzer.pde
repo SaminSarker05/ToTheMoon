@@ -19,30 +19,46 @@ void draw(){
   fill(0);
   textSize(20);
   text("TSLA / USD  1D", 60, 80);
+  
   fill(180);
-  rect(100, 120, 100, 100);
+  rect(60, 120, 75, 75);
   fill(0);
   textSize(10);
-  text("Marker", 134, 170);
+  text("Marker", 83, 160);
+  
   fill(180);
-  rect(100, 250, 100, 100);
+  rect(60, 250, 75, 75);
   fill(0);
   textSize(10);
-  text("TrendLine", 125, 300);
-  if ((mouseX >= 100 && mouseX <= 200) && (mouseY >= 100 && mouseY <= 200)){
+  text("TrendLine", 76, 290);
+  
+  fill(180);
+  rect(60, 380, 75, 75);
+  fill(0);
+  textSize(10);
+  text("TextBox", 78, 420);
+  
+  if ((mouseX >= 60 && mouseX <= 60 + 75) && (mouseY >= 120 && mouseY <= 120 + 75)){
     cursor(ARROW);
     fill(200);
-    rect(100, 120, 100, 100);
+    rect(60, 120, 75, 75);
     mouseOnButton = 1;
     fill(0);
-    text("Marker", 134, 170);
-  } else if ((mouseX >= 100 && mouseX <= 200) && (mouseY >= 250 && mouseY <= 350)) {
+    text("Marker", 83, 160);
+  } else if ((mouseX >= 60 && mouseX <= 60 + 75) && (mouseY >= 250 && mouseY <= 250 + 75)) {
     cursor(ARROW);
     fill(200);
-    rect(100, 250, 100, 100);
+    rect(60, 250, 75, 75);
     mouseOnButton = 2;
     fill(0);
-    text("TrendLine", 125, 300);
+    text("TrendLine", 76, 290);
+  } else if ((mouseX >= 60 && mouseX <= 60 + 75) && (mouseY >= 380 && mouseY <= 380 + 75)) {
+    cursor(ARROW);
+    fill(200);
+    rect(60, 380, 75, 75);
+    mouseOnButton = 3;
+    fill(0);
+    text("TextBox", 78, 420);
   } else if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)) {
     cursor(CROSS);
     mouseOnButton = -1;
@@ -95,7 +111,11 @@ void mousePressed(){
   } else if (mouseOnButton == 2 && mode.equals("TrendLine")) {
     mode = "Pointer";
   }
-  
+  if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
+    mode = "TextBox";
+  } else if (mouseOnButton == 2 && mode.equals("Textbox")) {
+    mode = "Pointer";
+  }
 }
 
 void mouseDragged() {
