@@ -18,3 +18,5 @@ Samin - Created a demo branch with Taee and practiced creating branches, dealing
 5/25
 
 Taee - Created setup, candle, and tool classes. Developed a primitive system for determining which button/mode is pressed
+
+Samin - Worked with Taee in class and on his computer on setting up base code.
