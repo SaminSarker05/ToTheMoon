@@ -44,3 +44,8 @@ Samin - Used data from yahoo and made method to parse csv data and make a graph 
 Taee - Reworked the structure for tools, completed the algorithm for marker class, looked for a way to link it with the main class. 
 
 Samin - Implemented feature to make graph and candlesticks move with user mouse drag.
+
+5/30
+
+Taee - Found a new approach for implementing the trendline and successfully created the tool.
+
