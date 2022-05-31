@@ -45,6 +45,7 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
+  /*
   if (mousePressed) {
     if (!fpoint) {
       sx = mouseX;
@@ -56,7 +57,20 @@ void draw(){
       fpoint = false;
     }
   }
-  
+  */
+}
+
+void mouseClicked() {
+  Tools x = new Tools(mode, fpoint);
+  if (!fpoint) {
+      sx = mouseX;
+      sy = mouseY;
+      x.displayTrendLineOne(sx, sy);
+      fpoint = true;
+    } else {
+      x.displayTrendLineTwo(sx, sy);
+      fpoint = false;
+    }
 }
 
 void mousePressed(){
