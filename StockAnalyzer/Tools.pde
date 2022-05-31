@@ -1,41 +1,35 @@
 public class Tools {
-  //int mouseX;
-  //int mouseY;
-  
-  //public Tools(int xPlace, int yPlace){
-  // mouseX = xPlace;
-  // mouseY = yPlace;
-  
-  ////values below are place holder for real values
-  // void display() {
-  //  boolean rightCol = (mouseX >= 100 && mouseX <= 200);
-  //  if (rightCol && mouseY >= 100 && mouseY <= 200) {
-  //    marker();
-  //  } 
-  //}
-  //  /*else if (rightCol && mouseY >= 250 && mouseY <= 350) {
-      
-  //  } else if (rightCol && mouseY >= 400 && mouseY <= 500) {
-      
-  //  } else if (rightCol && mouseY >= 550 && mouseY <= 650) {
-      
-  //  } else if (rightCol && mouseY >= 700 && mouseY <= 800) {
-      
-  //  } else if (rightCol && mouseY >= 850 && mouseY <= 950) {
-      
-  //  }
-  //  */
-  //}
+  private String mode;
+  private boolean fpoint;
 
+  public Tools (String mode, boolean fpoint) {
+    this.mode = mode;
+    this.fpoint = fpoint;
+  }
   
-  // void marker() {
-  //  stroke(51, 255, 255);
-  //  if (mousePressed == true) {
-  //    line(mouseX, mouseY, pmouseX, pmouseY);
-  //  }
-  // }
-  
-  //void trendLine() {
-  //  stroke(51, 255, 255);
-  //}
+  void displayMarker() {
+    if (mode.equals("Marker")) {
+      stroke(51, 255, 255);
+      if (mousePressed) {
+        strokeWeight(2);
+        line(mouseX, mouseY, pmouseX, pmouseY);
+      }
+    }
+  }
+    
+   void displayTrendLineOne(int sx, int sy) {
+    if (mode.equals("TrendLine")) {
+      fill(0,255,0);
+      circle(sx, sy, 12.0);
+    }
+   }
+   
+   void displayTrendLineTwo(int sx, int sy) {
+    if (mode.equals("TrendLine")) {
+      fill(255, 0,0);
+      circle(mouseX, mouseY, 12.0);
+      stroke(0);
+      line(sx, sy, mouseX, mouseY);
+    }
+   }
 }
