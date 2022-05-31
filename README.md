@@ -12,3 +12,5 @@ Samin - Watched youtube videos with Taee on github branching and merging and exp
 5/24
 
 Taee - Created a demo branch with Samin and practiced creating branches, dealing with merge conflicts, and understanding the github network feature.
+
+Samin - Created a demo branch with Taee and practiced creating branches, dealing with merge conflicts, and understanding the github network feature.
