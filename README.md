@@ -26,3 +26,8 @@ Samin - Worked with Taee in class and on his computer on setting up base code.
 Taee - Conducted research on reading in stock data from online sources. Chose Tesla as our reference stock for development.
 
 Samin - Fixed y coordinate for candles and problem with candle color.
+
+5/27
+
+Taee - Assisted Samin in class with developing the candles. 
+
