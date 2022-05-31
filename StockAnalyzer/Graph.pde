@@ -3,11 +3,14 @@ String line;
 
 public class Graph {
   private ArrayList<Candle> Candles = new ArrayList<Candle>();
+  private ArrayList<String> dates = new ArrayList<String>();
+  int dateYCor = 40;
+  int dateXCor = 1100;;
 
   public Graph(){
   }
   
-  void start() {
+  void start() {  
     fill(200);
     rect(40.0, 40.0, 1100.0, 680.0);
     
@@ -27,13 +30,55 @@ public class Graph {
       float high = Float.parseFloat(data[2]);
       float low = Float.parseFloat(data[3]);
       float close = Float.parseFloat(data[4]);
+      String date = data[0];
       Candle temp = new Candle(high, low, open, close);
       Candles.add(temp);
+      dates.add(date);
     }
+  }
+  
+  void buildYAxis(int shift) {
+   this.dateYCor += shift;
+   int high = (int) findHighestHigh();
+   int ycor = dateYCor;
+   for (int i = high; i >= 0; i-= 40){
+     fill(0);
+     text(i, 1150, ycor);
+     ycor += 42;
+   }
+  }
+  
+  void buildXAxis(int shift) {
+   //this.dateYCor += shift;
+   //int ycor = dateYCor;
+   //for (int i = high; i >= 0; i-= 40){
+   //  fill(0);
+   //  text(i, 1150, ycor);
+   //  ycor += 42;
+   //}
+   
+   //this.dateXCor += shift;
+   //int xcor = dateXCor;
+   //for (int i = dates.size()-1; i >= 0 ; i-=10){
+   //   fill(0);
+   //   textSize(6);
+   //   //rotate(HALF_PI);
+   //   text(dates.get(i), xcor, 600);
+   //   xcor -= 50;
+   // }
+  }
+  
+  double findHighestHigh(){
+    double high = 0;
+    for (int i = 0; i < Candles.size(); i++){
+      if (Candles.get(i).getHigh() > high) {
+        high = Candles.get(i).getHigh();
+      }
+    }
+    return high;
   }
     
   void shiftCandles(int dirX, int dirY) {
-
     background(255);
     fill(200);
     stroke(255);
