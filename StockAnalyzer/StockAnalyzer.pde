@@ -19,8 +19,6 @@ void draw(){
   fill(0);
   textSize(20);
   text("TSLA / USD  1D", 60, 80);
-    
-    
   fill(180);
   rect(100, 120, 100, 100);
   fill(0);
@@ -48,6 +46,13 @@ void draw(){
   } else if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)) {
     cursor(CROSS);
     mouseOnButton = -1;
+    //int x = mouseX;
+    //int y = mouseY;
+    //stroke(0);
+    //line(40, y, x, y);
+    //line(x, y, 1140, y);
+    //line(x, 40, x, y);
+    //line(x, y, x, 720);
   } else {
     cursor(ARROW);
     mouseOnButton = -1;
@@ -56,7 +61,10 @@ void draw(){
   x.displayMarker();
   
   
-  if (shift == false) instance.buildYAxis(0);
+  if (shift == false) {
+    instance.buildYAxis(0);
+    instance.buildXAxis(0);
+  }
 }
 
 void mouseClicked() {
@@ -108,6 +116,8 @@ void mouseDragged() {
   
     instance.shiftCandles(shiftX, shiftY);
     if (shiftY != 0) shift = true;
+    if (shiftX != 0) shift = true;
     instance.buildYAxis(shiftY);
+    instance.buildXAxis(shiftX);
   }
 }
