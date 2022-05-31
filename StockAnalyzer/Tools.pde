@@ -20,7 +20,6 @@ public class Tools {
     
    void displayTrendLineOne(int sx, int sy) {
     if (mode.equals("TrendLine")) {
-      cursor(HAND);
       fill(0,255,0);
       circle(sx, sy, 12.0);
     }
@@ -28,7 +27,6 @@ public class Tools {
    
    void displayTrendLineTwo(int sx, int sy) {
     if (mode.equals("TrendLine")) {
-      cursor(HAND);
       fill(255, 0,0);
       circle(mouseX, mouseY, 12.0);
       stroke(0);

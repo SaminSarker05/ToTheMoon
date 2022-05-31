@@ -45,8 +45,11 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
-  /*
-  if (mousePressed) {
+}
+
+void mouseClicked() {
+  if (!((mouseX >= 100 && mouseX <= 200) && (mouseY >= 250 && mouseY <= 350))) {
+    Tools x = new Tools(mode, fpoint);
     if (!fpoint) {
       sx = mouseX;
       sy = mouseY;
@@ -57,20 +60,6 @@ void draw(){
       fpoint = false;
     }
   }
-  */
-}
-
-void mouseClicked() {
-  Tools x = new Tools(mode, fpoint);
-  if (!fpoint) {
-      sx = mouseX;
-      sy = mouseY;
-      x.displayTrendLineOne(sx, sy);
-      fpoint = true;
-    } else {
-      x.displayTrendLineTwo(sx, sy);
-      fpoint = false;
-    }
 }
 
 void mousePressed(){
