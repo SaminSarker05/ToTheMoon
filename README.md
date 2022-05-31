@@ -49,3 +49,5 @@ Samin - Implemented feature to make graph and candlesticks move with user mouse 
 
 Taee - Found a new approach for implementing the trendline and successfully created the tool.
 
+Samin - Created y-axis for graph that adjusts to user mouse drag and added ticker symbol and for stock displayed.
+
