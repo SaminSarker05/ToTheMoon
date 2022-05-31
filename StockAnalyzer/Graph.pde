@@ -3,11 +3,12 @@ String line;
 
 public class Graph {
   private ArrayList<Candle> Candles = new ArrayList<Candle>();
+  private ArrayList<String> dates = new ArrayList<String>();
 
   public Graph(){
   }
   
-  void start() {
+  void start() {  
     fill(200);
     rect(40.0, 40.0, 1100.0, 680.0);
     
@@ -33,7 +34,6 @@ public class Graph {
   }
     
   void shiftCandles(int dirX, int dirY) {
-
     background(255);
     fill(200);
     stroke(255);

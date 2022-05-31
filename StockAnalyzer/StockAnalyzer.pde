@@ -14,21 +14,29 @@ void setup() {
 }
 
 void draw(){
-  fill(180);
-  rect(100, 100, 100, 100);
+  
   fill(0);
-  text("Marker", 134, 150);
+  textSize(20);
+  text("TSLA / USD  1D", 60, 80);
+    
+    
+  fill(180);
+  rect(100, 120, 100, 100);
+  fill(0);
+  textSize(10);
+  text("Marker", 134, 170);
   fill(180);
   rect(100, 250, 100, 100);
   fill(0);
+  textSize(10);
   text("TrendLine", 125, 300);
   if ((mouseX >= 100 && mouseX <= 200) && (mouseY >= 100 && mouseY <= 200)){
     cursor(ARROW);
     fill(200);
-    rect(100, 100, 100, 100);
+    rect(100, 120, 100, 100);
     mouseOnButton = 1;
     fill(0);
-    text("Marker", 134, 150);
+    text("Marker", 134, 170);
   } else if ((mouseX >= 100 && mouseX <= 200) && (mouseY >= 250 && mouseY <= 350)) {
     cursor(ARROW);
     fill(200);
