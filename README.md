@@ -33,3 +33,7 @@ Taee - Assisted Samin in class with developing the candles.
 
 Samin - Finished candle stick class and successfully displayed candles with different colors and lengths corresponding to data.
 
+5/28
+
+Taee - Reworked the structure for tools, completed the algorithm for marker class, looked for a way to link it with the main class. 
+
