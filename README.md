@@ -20,3 +20,7 @@ Samin - Created a demo branch with Taee and practiced creating branches, dealing
 Taee - Created setup, candle, and tool classes. Developed a primitive system for determining which button/mode is pressed
 
 Samin - Worked with Taee in class and on his computer on setting up base code.
+
+5/26
+
+Taee - Conducted research on reading in stock data from online sources. Chose Tesla as our reference stock for development.
