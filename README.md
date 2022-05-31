@@ -39,3 +39,6 @@ Taee - Reworked the structure for tools, completed the algorithm for marker clas
 
 Samin - Used data from yahoo and made method to parse csv data and make a graph of candle sticks.
 
+5/29
+
+Taee - Reworked the structure for tools, completed the algorithm for marker class, looked for a way to link it with the main class. 
