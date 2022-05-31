@@ -29,5 +29,7 @@ Samin - Fixed y coordinate for candles and problem with candle color.
 
 5/27
 
-Taee - Assisted Samin in class with developing the candles. 
+Taee - Assisted Samin in class with developing the candles.
+
+Samin - Finished candle stick class and successfully displayed candles with different colors and lengths corresponding to data.
 
