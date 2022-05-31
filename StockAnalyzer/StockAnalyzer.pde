@@ -45,14 +45,18 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
-  if (mousePressed && !fpoint) {
-    sx = mouseX;
-    sy = mouseY;
-    x.displayTrendLineOne(sx, sy);
-  } else if (mousePressed && fpoint) {
-    x.displayTrendLineTwo(sx, sy);
+  if (mousePressed) {
+    if (!fpoint) {
+      sx = mouseX;
+      sy = mouseY;
+      x.displayTrendLineOne(sx, sy);
+      fpoint = true;
+    } else {
+      x.displayTrendLineTwo(sx, sy);
+      fpoint = false;
+    }
   }
-  fpoint = !fpoint;
+  
 }
 
 void mousePressed(){
