@@ -1,5 +1,5 @@
 # ToTheMoon
-Stock Market interface that enables user to analyze graphs of stocks using different indicators and tools, helping determine if its a good buy or sell signal. Data visualization and analysis.
+Hi! This is team To The Moon. For this project, we are aiming to create a stock market interface using processing to enable users to analyze stocks using different indicators and tools. Our project will be modeled off of the platform TradingView, a popular financial charts analyzer for traders. The interface will gather data from the Alpha Vantage API to construct an initial graph of candlesticks for a user entered stock. We will also implement popular indicators like Fibonacci retracement, Bollinger bands, Elliot waves, and more! Users will be able to display the indicators and draw their own support and resistance lines, and trends to help them predict price movement. Our ultimate goal is to create an aesthetically pleasing and easy-to-use interface to examine a stock using technical analysis.
 
 Link to Prototype: https://docs.google.com/document/d/1pQFxh666HGTi9fJxpToamVlzwXdhTgp3B7jWdYR1Qh4/edit?usp=sharing
 
