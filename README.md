@@ -1,6 +1,8 @@
 # ToTheMoon
 Stock Market interface that enables user to analyze graphs of stocks using different indicators and tools, helping determine if its a good buy or sell signal. Data visualization and analysis.
 
+Link to Prototype: https://docs.google.com/document/d/1pQFxh666HGTi9fJxpToamVlzwXdhTgp3B7jWdYR1Qh4/edit?usp=sharing
+
 Dev Log
 
 5/23
