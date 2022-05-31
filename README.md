@@ -37,3 +37,5 @@ Samin - Finished candle stick class and successfully displayed candles with diff
 
 Taee - Reworked the structure for tools, completed the algorithm for marker class, looked for a way to link it with the main class. 
 
+Samin - Used data from yahoo and made method to parse csv data and make a graph of candle sticks.
+
