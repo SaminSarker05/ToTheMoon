@@ -32,4 +32,15 @@ public class Tools {
       line(sx, sy, mouseX, mouseY);
     }
    }
+   
+   void displayText() {    
+    if (mode.equals("TextBox")) {
+      if (mousePressed) {
+        strokeWeight(2);
+        text("stuff", mouseX, mouseY);
+      }
+    }
+    
+ 
+  }
 }

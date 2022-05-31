@@ -75,6 +75,7 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
+  x.displayText();
   
   
   if (shift == false) {
@@ -113,7 +114,7 @@ void mousePressed(){
   }
   if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
     mode = "TextBox";
-  } else if (mouseOnButton == 2 && mode.equals("Textbox")) {
+  } else if (mouseOnButton == 3 && mode.equals("TextBox")) {
     mode = "Pointer";
   }
 }
