@@ -4,6 +4,7 @@ String line;
 public class Graph {
   private ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
+  int dateYCor = 40;
 
   public Graph(){
   }
@@ -18,6 +19,16 @@ public class Graph {
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
       xcor -= 5;
     }
+    
+    xcor = 1100;
+  
+  //for (int i = 0; i < dates.size(); i+=10){
+  
+  //    fill(0);
+  //    text(dates.get(i), xcor, 500);
+  //    xcor -= 50;
+  //}
+      
   }
   
   void retrieve() {
@@ -28,9 +39,32 @@ public class Graph {
       float high = Float.parseFloat(data[2]);
       float low = Float.parseFloat(data[3]);
       float close = Float.parseFloat(data[4]);
+      String date = data[0];
       Candle temp = new Candle(high, low, open, close);
       Candles.add(temp);
+      dates.add(date);
     }
+  }
+  
+  void buildYAxis(int shift) {
+   this.dateYCor += shift;
+   int high = (int) findHighestHigh();
+   int ycor = dateYCor;
+   for (int i = high; i >= 0; i-= 40){
+     fill(0);
+     text(i, 1150, ycor);
+     ycor += 42;
+   }
+  }
+  
+  double findHighestHigh(){
+    double high = 0;
+    for (int i = 0; i < Candles.size(); i++){
+      if (Candles.get(i).getHigh() > high) {
+        high = Candles.get(i).getHigh();
+      }
+    }
+    return high;
   }
     
   void shiftCandles(int dirX, int dirY) {

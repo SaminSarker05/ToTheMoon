@@ -91,4 +91,8 @@ public class Candle {
   int getYCor(){
     return (int) this.ycor;
   }
+  
+  double getHigh(){
+    return this.high;
+  }
 }

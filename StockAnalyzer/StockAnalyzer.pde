@@ -6,6 +6,7 @@ int currY;
 int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
+boolean shift = false;
 
 void setup() {
   size(1200, 750);
@@ -53,6 +54,9 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
+  
+  
+  if (shift == false) instance.buildYAxis(0);
 }
 
 void mouseClicked() {
@@ -103,5 +107,7 @@ void mouseDragged() {
     } else shiftY = 0;
   
     instance.shiftCandles(shiftX, shiftY);
+    if (shiftY != 0) shift = true;
+    instance.buildYAxis(shiftY);
   }
 }
