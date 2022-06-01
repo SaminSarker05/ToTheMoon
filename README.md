@@ -53,3 +53,9 @@ Taee - Found a new approach for implementing the trendline and successfully crea
 
 Samin - Created y-axis for graph that adjusts to user mouse drag and added ticker symbol and for stock displayed.
 
+5/31
+
+Taee - Helped Samin start textbox tool and researched user text input in processing.
+
+Samin - Started new textbox tool and was able to create new button and ability to insert placeholder text anywhere on screen.
+
