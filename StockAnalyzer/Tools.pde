@@ -33,14 +33,16 @@ public class Tools {
     }
    }
    
-   void displayText() {    
-    if (mode.equals("TextBox")) {
-      if (mousePressed) {
-        strokeWeight(2);
-        text("stuff", mouseX, mouseY);
-      }
-    }
-    
- 
+   void displayText() {
+     
+     
+     String message = "stuff";
+     if (mode.equals("TextBox")) {
+       
+       if (mousePressed) {
+         strokeWeight(2);
+         text(message, mouseX, mouseY);
+       }
+     }
   }
 }
