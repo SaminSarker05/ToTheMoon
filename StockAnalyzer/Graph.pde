@@ -11,7 +11,7 @@ public class Graph {
   }
   
   void start() {  
-    fill(200);
+    fill(203, 178, 169);
     rect(40.0, 40.0, 1100.0, 680.0);
     
     int xcor = 1100;

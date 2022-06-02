@@ -64,13 +64,9 @@ void draw(){
   } else if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)) {
     cursor(CROSS);
     mouseOnButton = -1;
-    //int x = mouseX;
-    //int y = mouseY;
-    //stroke(0);
-    //line(40, y, x, y);
-    //line(x, y, 1140, y);
-    //line(x, 40, x, y);
-    //line(x, y, x, 720);
+    int x = mouseX;
+    int y = mouseY;
+
   } else {
     cursor(ARROW);
     mouseOnButton = -1;
