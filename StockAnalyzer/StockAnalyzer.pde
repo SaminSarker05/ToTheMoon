@@ -103,11 +103,13 @@ float scale = 1.5; // controls how zoomed it it is
 float xPan = 720;
 float yPan = 450;
 boolean zoomIn = false;
-boolean zoomOut = true;
+boolean zoomOut = false;
 boolean panUp = false;
 boolean panDown = false;
 boolean panLeft = false;
 boolean panRight = false;
+float panSpeed = 5;
+float zoomSpeed = 1.04;
 
 
 void setup() {
@@ -126,21 +128,69 @@ void draw() {
   fill(0, 0, 255);
   triangle(500, 600, 700, 600, 600, 800);
   if (zoomIn) {
-    scale *= 1.01;
+    scale *= zoomSpeed;
   }
   if (zoomOut) {
-    scale /= 1.01;
+    scale /= zoomSpeed;
   }
   if (panUp) {
-    yPan += 1;
+    yPan -= panSpeed;
   }
   if (panDown) {
-    yPan -= 1;
+    yPan += panSpeed;
   }
   if (panLeft) {
-    xPan += 1;
+    xPan -= panSpeed;
   }
   if (panRight) {
-    xPan -= 1;
+    xPan += panSpeed;
   }
 }
+  
+  void keyPressed() {
+    if (keyCode == UP) {
+      zoomIn = true;
+      zoomOut = false;
+    }
+    if (keyCode == DOWN) {
+      zoomOut = true;
+      zoomIn = false;
+    } 
+    if (key == 'w') {
+      panUp = true;
+      panDown = false;
+    } 
+    if (key == 's') {
+      panDown = true;
+      panUp = false;
+    } 
+    if (key == 'a') {
+      panLeft = true;
+      panRight = false;
+    }
+    if (key == 'd') {
+      panLeft = false;
+      panRight = true;
+    }
+  }
+  
+  void keyReleased() {
+    if (keyCode == UP) {
+      zoomIn = false;
+    } 
+    if (keyCode == DOWN) {
+      zoomOut = false;
+    }
+    if (key == 'w') {
+      panUp = false;
+    }
+    if (key == 's') {
+      panDown = false;
+    }
+    if (key == 'a') {
+      panLeft = false;
+    }
+    if (key == 'd') {
+      panRight = false;
+    }
+  }
