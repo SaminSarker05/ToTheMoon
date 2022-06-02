@@ -62,3 +62,5 @@ Samin - Started new textbox tool and was able to create new button and ability t
 6/1
 
 Taee - Implemented a demo for zooming in/out & panning left/right.
+
+Samin - Finished textbox tool and changed color scheme of graph and candles.
