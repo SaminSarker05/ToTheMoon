@@ -55,15 +55,10 @@ Samin - Created y-axis for graph that adjusts to user mouse drag and added ticke
 
 5/31
 
-Taee - Conducted research in class on zooming in and out for graph.
-
-Samin - Conducted research on getting user input for textbox tool.
-
-6/1
-
 Taee - Helped Samin start textbox tool and researched user text input in processing.
 
 Samin - Started new textbox tool and was able to create new button and ability to insert placeholder text anywhere on screen.
 
+6/1
 
-
+Taee - Implemented a demo for zooming in/out & panning left/right.
