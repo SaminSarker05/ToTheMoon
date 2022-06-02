@@ -20,14 +20,14 @@ public class Tools {
     
    void displayTrendLineOne(int sx, int sy) {
     if (mode.equals("TrendLine")) {
-      fill(0,255,0);
+      fill(0);
       circle(sx, sy, 12.0);
     }
    }
    
    void displayTrendLineTwo(int sx, int sy) {
     if (mode.equals("TrendLine")) {
-      fill(255, 0,0);
+      fill(0);
       circle(mouseX, mouseY, 12.0);
       stroke(0);
       line(sx, sy, mouseX, mouseY);
