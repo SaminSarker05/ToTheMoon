@@ -11,14 +11,14 @@ public class Graph {
   }
   
   void start() {  
-    fill(203, 178, 169);
+    fill(200);
     rect(40.0, 40.0, 1100.0, 680.0);
     
     int xcor = 1100;
     retrieve();
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
-      xcor -= 5;
+      xcor -= 6;
     }
   }
   
