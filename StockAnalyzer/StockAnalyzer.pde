@@ -1,4 +1,4 @@
-String mode = "Pointer";
+/*String mode = "Pointer";
 String ticker;
 Graph instance = new Graph();
 int currX;
@@ -97,3 +97,4 @@ void mouseDragged() {
     instance.shiftCandles(shiftX, shiftY);
   }
 }
+*/
