@@ -76,6 +76,7 @@ void draw(){
     mouseOnButton = -1;
   }
   Tools x = new Tools(mode, fpoint);
+  
   x.displayMarker();
   x.displayText(saved);
   
@@ -116,6 +117,7 @@ void mousePressed(){
   }
   if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
     mode = "TextBox";
+    text("Type message and press enter. Then click anywhere to insert text", 450,700);
   } else if (mouseOnButton == 3 && mode.equals("TextBox")) {
     mode = "Pointer";
   }
@@ -149,12 +151,9 @@ void keyPressed() {
   if (mode == "TextBox"){
     if (key == '\n'){
     saved = typing;
-    System.out.println(saved);
     typing = "";
     } else {
       typing += key;
     }
   }
-
-  
 }
