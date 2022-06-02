@@ -99,11 +99,25 @@ void mouseDragged() {
 }
 */
 
+float scale = 1.5; // controls how zoomed it it is
+float xPan = 720;
+float yPan = 450;
+boolean zoomIn = false;
+boolean zoomOut = true;
+boolean panUp = false;
+boolean panDown = false;
+boolean panLeft = false;
+boolean panRight = false;
+
+
 void setup() {
   size(1440, 900);
 }
 
 void draw() {
+  translate(width / 2, height / 2); // zooms to center of screen
+  scale(scale);
+  translate(-xPan, -yPan);
   background(200);
   fill(255, 0, 0);
   rect(200, 200, 300, 300);
@@ -111,4 +125,22 @@ void draw() {
   ellipse(1000, 250, 200, 200);
   fill(0, 0, 255);
   triangle(500, 600, 700, 600, 600, 800);
+  if (zoomIn) {
+    scale *= 1.01;
+  }
+  if (zoomOut) {
+    scale /= 1.01;
+  }
+  if (panUp) {
+    yPan += 1;
+  }
+  if (panDown) {
+    yPan -= 1;
+  }
+  if (panLeft) {
+    xPan += 1;
+  }
+  if (panRight) {
+    xPan -= 1;
+  }
 }
