@@ -98,3 +98,17 @@ void mouseDragged() {
   }
 }
 */
+
+void setup() {
+  size(1440, 900);
+}
+
+void draw() {
+  background(200);
+  fill(255, 0, 0);
+  rect(200, 200, 300, 300);
+  fill(0, 255, 0);
+  ellipse(1000, 250, 200, 200);
+  fill(0, 0, 255);
+  triangle(500, 600, 700, 600, 600, 800);
+}
