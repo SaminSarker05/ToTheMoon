@@ -34,8 +34,6 @@ public class Tools {
    }
    
    void displayText() {
-     
-     
      String message = "stuff";
      if (mode.equals("TextBox")) {
        

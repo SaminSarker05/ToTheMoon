@@ -142,3 +142,10 @@ void mouseDragged() {
     instance.buildXAxis(shiftX);
   }
 }
+
+void keyPressed() {
+  String pass = "";
+  pass += key;
+  //x.displayText();
+  
+}

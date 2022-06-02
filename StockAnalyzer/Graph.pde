@@ -57,15 +57,15 @@ public class Graph {
    //  ycor += 42;
    //}
    
-   //this.dateXCor += shift;
-   //int xcor = dateXCor;
-   //for (int i = dates.size()-1; i >= 0 ; i-=10){
-   //   fill(0);
-   //   textSize(6);
-   //   //rotate(HALF_PI);
-   //   text(dates.get(i), xcor, 600);
-   //   xcor -= 50;
-   // }
+   this.dateXCor += shift;
+   int xcor = dateXCor;
+   for (int i = dates.size()-1; i >= 0 ; i-=10){
+      fill(0);
+      textSize(6);
+      //rotate(HALF_PI);
+      text(dates.get(i), xcor, 600);
+      xcor -= 50;
+    }
   }
   
   double findHighestHigh(){
