@@ -7,6 +7,8 @@ int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
 boolean shift = false;
+String typing = "";
+String saved = "";
 
 void setup() {
   size(1200, 750);
@@ -75,12 +77,12 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
-  x.displayText();
+  x.displayText(saved);
   
   
   if (shift == false) {
     instance.buildYAxis(0);
-    instance.buildXAxis(0);
+    //instance.buildXAxis(0);
   }
 }
 
@@ -144,8 +146,15 @@ void mouseDragged() {
 }
 
 void keyPressed() {
-  String pass = "";
-  pass += key;
-  //x.displayText();
+  if (mode == "TextBox"){
+    if (key == '\n'){
+    saved = typing;
+    System.out.println(saved);
+    typing = "";
+    } else {
+      typing += key;
+    }
+  }
+
   
 }

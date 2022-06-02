@@ -33,8 +33,8 @@ public class Tools {
     }
    }
    
-   void displayText() {
-     String message = "stuff";
+   void displayText(String text) {
+     String message = text;
      if (mode.equals("TextBox")) {
        
        if (mousePressed) {
