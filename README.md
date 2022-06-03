@@ -64,3 +64,9 @@ Samin - Started new textbox tool and was able to create new button and ability t
 Taee - Implemented a demo for zooming in/out & panning left/right.
 
 Samin - Finished textbox tool and changed color scheme of graph and candles.
+
+6/2
+
+Taee - Conducted research on creating eraser/delete tools.
+
+Samin - Conducted research on creating eraser/delete tools.
