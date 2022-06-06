@@ -6,6 +6,12 @@ int currY;
 int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
+float scale = 1.5;
+float xPan = 600;
+float yPan = 375;
+boolean zoomIn = false;
+boolean zoomOut = false;
+float zoomSpeed = 1.04;
 
 void setup() {
   size(1200, 750);
@@ -14,6 +20,9 @@ void setup() {
 }
 
 void draw(){
+  translate(width / 2, height / 2); // zooms to center of screen
+  scale(scale);
+  translate(-xPan, -yPan);
   fill(180);
   rect(100, 100, 100, 100);
   fill(0);
@@ -45,6 +54,13 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
+  if (zoomIn) {
+    scale *= zoomSpeed;
+  }
+  if (zoomOut) {
+    scale /= zoomSpeed;
+  }
+  
 }
 
 void mouseClicked() {
@@ -97,6 +113,26 @@ void mouseDragged() {
     instance.shiftCandles(shiftX, shiftY);
   }
 }
+
+void keyPressed() {
+    if (keyCode == UP) {
+      zoomIn = true;
+      zoomOut = false;
+    }
+    if (keyCode == DOWN) {
+      zoomOut = true;
+      zoomIn = false;
+    } 
+  }
+  
+  void keyReleased() {
+    if (keyCode == UP) {
+      zoomIn = false;
+    } 
+    if (keyCode == DOWN) {
+      zoomOut = false;
+    }
+  }
 */
 
 float scale = 1.5; // controls how zoomed it it is
