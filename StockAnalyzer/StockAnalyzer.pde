@@ -6,12 +6,14 @@ int currY;
 int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
-float scale = 1;
+/*
+float scale = 1.1;
 float xPan = 600;
 float yPan = 375;
 boolean zoomIn = false;
 boolean zoomOut = false;
 float zoomSpeed = 1.04;
+*/
 
 void setup() {
   size(1200, 750);
@@ -20,15 +22,6 @@ void setup() {
 }
 
 void draw(){
-  translate(width / 2, height / 2); // zooms to center of screen
-  scale(scale);
-  translate(-xPan, -yPan);
-  if (zoomIn) {
-    scale *= zoomSpeed;
-  }
-  if (zoomOut) {
-    scale /= zoomSpeed;
-  }
   fill(180);
   rect(100, 100, 100, 100);
   fill(0);
@@ -60,6 +53,17 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
+  /*
+  translate(width / 2, height / 2); // zooms to center of screen
+  scale(scale);
+  translate(-xPan, -yPan);
+  if (zoomIn) {
+    scale *= zoomSpeed;
+  }
+  if (zoomOut) {
+    scale /= zoomSpeed;
+  }
+  */
 }
 
 void mouseClicked() {
@@ -112,7 +116,7 @@ void mouseDragged() {
     instance.shiftCandles(shiftX, shiftY);
   }
 }
-
+/*
 void keyPressed() {
     if (keyCode == UP) {
       zoomIn = true;
@@ -132,6 +136,9 @@ void keyPressed() {
       zoomOut = false;
     }
   }
+*/
+
+//---------------------------------------------------------------
 
 /*
 
