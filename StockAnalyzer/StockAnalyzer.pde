@@ -1,4 +1,4 @@
-/*String mode = "Pointer";
+String mode = "Pointer";
 String ticker;
 Graph instance = new Graph();
 int currX;
@@ -6,7 +6,7 @@ int currY;
 int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
-float scale = 1.5;
+float scale = 1;
 float xPan = 600;
 float yPan = 375;
 boolean zoomIn = false;
@@ -23,6 +23,12 @@ void draw(){
   translate(width / 2, height / 2); // zooms to center of screen
   scale(scale);
   translate(-xPan, -yPan);
+  if (zoomIn) {
+    scale *= zoomSpeed;
+  }
+  if (zoomOut) {
+    scale /= zoomSpeed;
+  }
   fill(180);
   rect(100, 100, 100, 100);
   fill(0);
@@ -54,13 +60,6 @@ void draw(){
   }
   Tools x = new Tools(mode, fpoint);
   x.displayMarker();
-  if (zoomIn) {
-    scale *= zoomSpeed;
-  }
-  if (zoomOut) {
-    scale /= zoomSpeed;
-  }
-  
 }
 
 void mouseClicked() {
@@ -133,7 +132,8 @@ void keyPressed() {
       zoomOut = false;
     }
   }
-*/
+
+/*
 
 float scale = 1.5; // controls how zoomed it it is
 float xPan = 720;
@@ -230,3 +230,4 @@ void draw() {
       panRight = false;
     }
   }
+*/
