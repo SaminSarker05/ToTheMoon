@@ -70,3 +70,9 @@ Samin - Finished textbox tool and changed color scheme of graph and candles.
 Taee - Conducted research on creating eraser/delete tools.
 
 Samin - Conducted research on creating eraser/delete tools.
+
+6/6
+
+Taee - Attempted to implement the zooming in/out feature, ran into several problems.
+
+Samin - Changed the program layout, added grid lines, updated axis.
