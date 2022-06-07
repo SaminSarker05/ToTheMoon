@@ -44,18 +44,20 @@ public class Graph {
    high = Math.round(high/10.0) * 10; 
    int ycor = dateYCor;
    for (int i = high; i >= 0; i-= 40){
-     fill(0);
+     int colour = 0;
+     if (ycor < 70 || ycor > 700){
+       colour = 255;
+     }
+     fill(colour);
      text(i, 1150, ycor);
      ycor += 42;
    }
-   
    ycor = dateYCor;
-   
    for (int i = high; i <= 10000; i+= 40){
      int colour = 0;
-     //if (ycor < 70 || ycor > 600){
-     //  colour = 255;
-     //}
+     if (ycor < 70 || ycor > 700){
+       colour = 255;
+     }
      fill(colour);
      text(i, 1150, ycor);
      ycor -= 42;
@@ -71,6 +73,11 @@ public class Graph {
      translate(100, 180);
      rotate(angle1);
      textSize(9);
+     int colour = 0;
+     if (xcor < -32 || xcor > 1040){
+       colour = 255;
+     }
+     fill(colour);
      text(dates.get(i), -560, xcor);
      popMatrix();
      xcor -= 120;
