@@ -12,9 +12,9 @@ public class Graph {
   
   void start() {  
     fill(200);
-    rect(40.0, 40.0, 1100.0, 680.0);
+    rect(60.0, 40.0, 1080.0, 680.0);
     
-    int xcor = 1100;
+    int xcor = 1080;
     retrieve();
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
@@ -40,11 +40,24 @@ public class Graph {
   void buildYAxis(int shift) {
    this.dateYCor += shift;
    int high = (int) findHighestHigh();
+   high = Math.round(high/10.0) * 10; 
    int ycor = dateYCor;
    for (int i = high; i >= 0; i-= 40){
      fill(0);
      text(i, 1150, ycor);
      ycor += 42;
+   }
+   
+   ycor = dateYCor;
+   
+   for (int i = high; i <= 10000; i+= 40){
+     int colour = 0;
+     //if (ycor < 70 || ycor > 600){
+     //  colour = 255;
+     //}
+     fill(colour);
+     text(i, 1150, ycor);
+     ycor -= 42;
    }
   }
   
@@ -82,7 +95,7 @@ public class Graph {
     background(255);
     fill(200);
     stroke(255);
-    rect(40.0, 40.0, 1100.0, 680.0);
+    rect(60.0, 40.0, 1080.0, 680.0);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();

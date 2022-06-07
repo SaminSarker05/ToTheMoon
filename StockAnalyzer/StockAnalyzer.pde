@@ -10,57 +10,76 @@ boolean shift = false;
 String typing = "";
 String saved = "";
 
+Button marker = new Button(60, 120, "Marker");
+Button trendLine = new Button(60, 250, "Trendline");
+Button textBox = new Button(60, 380, "TextBox");
+
 void setup() {
-  size(1200, 750);
+  size(1400, 750);
   background(255);
   instance.start();
 }
 
 void draw(){
-  
+  buildLines();
+
   fill(0);
   textSize(20);
-  text("TSLA / USD  1D", 60, 80);
+  text("TSLA / USD  1D", 70, 80);
   
-  fill(180);
-  rect(60, 120, 75, 75);
+  fill(200);
+  rect(5, 40, 50, 50);
   fill(0);
   textSize(10);
-  text("Marker", 83, 160);
+  text("Marker", 14, 40 + 50/2);
   
-  fill(180);
-  rect(60, 250, 75, 75);
+  fill(200);
+  rect(5, 40 + 60, 50, 50);
   fill(0);
   textSize(10);
-  text("TrendLine", 76, 290);
+  text("Trend", 16, 40 + 60 + 50/2);
   
-  fill(180);
-  rect(60, 380, 75, 75);
+  fill(200);
+  rect(5, 40 + 60 * 2, 50, 50);
   fill(0);
   textSize(10);
-  text("TextBox", 78, 420);
+  text("TextBox", 11, 40 + 60 * 2 + 50/2);
   
-  if ((mouseX >= 60 && mouseX <= 60 + 75) && (mouseY >= 120 && mouseY <= 120 + 75)){
+  fill(200);
+  rect(5, 40 + 60 * 3, 50, 50);
+  
+  fill(200);
+  rect(5, 40 + 60 * 4, 50, 50);
+  
+  fill(200);
+  rect(5, 40 + 60 * 5, 50, 50);
+  
+  fill(200);
+  rect(5, 40 + 60 * 6, 50, 50);
+  
+  if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= 40 && mouseY <= 40 + 50)){
     cursor(ARROW);
-    fill(200);
-    rect(60, 120, 75, 75);
+    fill(220);
+    rect(5, 40, 50, 50);
+    fill(0);
+    text("Marker", 14, 40 + 50/2);
     mouseOnButton = 1;
-    fill(0);
-    text("Marker", 83, 160);
-  } else if ((mouseX >= 60 && mouseX <= 60 + 75) && (mouseY >= 250 && mouseY <= 250 + 75)) {
+  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50))) {
     cursor(ARROW);
-    fill(200);
-    rect(60, 250, 75, 75);
+    fill(220);
+    rect(5, 40 + 60, 50, 50);
+    fill(0);
+    textSize(10);
+    text("Trend", 16, 40 + 60 + 50/2);
     mouseOnButton = 2;
-    fill(0);
-    text("TrendLine", 76, 290);
-  } else if ((mouseX >= 60 && mouseX <= 60 + 75) && (mouseY >= 380 && mouseY <= 380 + 75)) {
+  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 2) && mouseY <= (40 + 60 * 2 + 50))) {
     cursor(ARROW);
-    fill(200);
-    rect(60, 380, 75, 75);
-    mouseOnButton = 3;
+    fill(220);
+    rect(5, 40 + 60 * 2, 50, 50);
     fill(0);
-    text("TextBox", 78, 420);
+    textSize(10);
+    text("TextBox", 11, 40 + 60 * 2 + 50/2);
+    mouseOnButton = 3;
   } else if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)) {
     cursor(CROSS);
     mouseOnButton = -1;
@@ -71,6 +90,8 @@ void draw(){
     cursor(ARROW);
     mouseOnButton = -1;
   }
+  
+  
   Tools x = new Tools(mode, fpoint);
   
   x.displayMarker();
@@ -151,5 +172,17 @@ void keyPressed() {
     } else {
       typing += key;
     }
+  }
+}
+
+void buildLines() {
+  for (int i = 110; i < 60 + 1080; i+= 50) {
+    stroke(230);
+    line(i, 40, i, 40 + 680);
+  }
+    
+  for (int i = 100; i < 40 + 680; i += 60) {
+    stroke(230);
+    line(60, i, 60 + 1080, i);
   }
 }

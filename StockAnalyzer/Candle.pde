@@ -15,7 +15,7 @@ public class Candle {
   }
   
   void display(int xCor, int yCor) {
-    if (xCor > 1130 || xCor < 40 || yCor > 700 || yCor < 40){
+    if (xCor > 1130 || xCor < 60 || yCor > 700 || yCor < 40){
       
       this.xcor = xCor;
       this.ycor = yCor;
