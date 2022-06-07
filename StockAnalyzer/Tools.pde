@@ -18,12 +18,12 @@ public class Tools {
   }
     
    void displayTrendLineOne(int sx, int sy) {
-    if (mode.equals("TrendLine")) {
+    if (mode.equals("TrendLine") && (!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (90) && mouseY <= (170))))) {
       fill(0);
       circle(sx, sy, 12.0);
     }
      if (mode.equals("TrendLine")) {
-       if (!((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50)))) {
+       if ((!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (90) && mouseY <= (170))))) {
          fill(0,0,0);
          circle(sx, sy, 6.0);
        }
