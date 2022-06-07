@@ -153,6 +153,7 @@ void mousePressed(){
     text("Type message and press enter. Then click anywhere to insert text", 450, 70);
   } else if (mouseOnButton == 3 && mode.equals("TextBox")) {
     mode = "Pointer";
+    saved = "";
   }
 }
 
