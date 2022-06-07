@@ -10,24 +10,29 @@ boolean shift = false;
 String typing = "";
 String saved = "";
 
-int frames;
-
 Button marker = new Button(60, 120, "Marker");
 Button trendLine = new Button(60, 250, "Trendline");
 Button textBox = new Button(60, 380, "TextBox");
 
+
+void startScreen() {
+  background(0);
+}
+
 void setup() {
+  startScreen();
+  
   frameRate(500);
   size(1400, 750);
   background(255);
-  instance.start();
-  frames = 500;
+  instance.start("TSLA");
 }
 
 void draw(){
   buildLines();
 
   fill(0);
+  stroke(255);
   textSize(20);
   text("TSLA / USD  1D", 70, 80);
   
@@ -65,23 +70,23 @@ void draw(){
     cursor(ARROW);
     fill(220);
     rect(5, 40, 50, 50);
-    fill(0);
+    stroke(0);
     text("Marker", 14, 40 + 50/2);
     mouseOnButton = 1;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50))) {
     cursor(ARROW);
     fill(220);
     rect(5, 40 + 60, 50, 50);
-    fill(0);
     textSize(10);
+    stroke(0);
     text("Trend", 16, 40 + 60 + 50/2);
     mouseOnButton = 2;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 2) && mouseY <= (40 + 60 * 2 + 50))) {
     cursor(ARROW);
     fill(220);
     rect(5, 40 + 60 * 2, 50, 50);
-    fill(0);
     textSize(10);
+    stroke(0);
     text("TextBox", 11, 40 + 60 * 2 + 50/2);
     mouseOnButton = 3;
   } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
@@ -99,8 +104,6 @@ void draw(){
     mouseOnButton = -1;
   }
   
-  frames += 500;
-  
   
   Tools x = new Tools(mode, fpoint);
   
@@ -110,7 +113,7 @@ void draw(){
   
   if (shift == false) {
     instance.buildYAxis(0);
-    //instance.buildXAxis(0);
+    instance.buildXAxis(0);
   }
 }
 
@@ -144,7 +147,10 @@ void mousePressed(){
   }
   if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
     mode = "TextBox";
-    text("Type message and press enter. Then click anywhere to insert text", 450,700);
+    System.out.println("here");
+    stroke(0);
+    fill(0);
+    text("Type message and press enter. Then click anywhere to insert text", 450, 70);
   } else if (mouseOnButton == 3 && mode.equals("TextBox")) {
     mode = "Pointer";
   }
@@ -188,11 +194,13 @@ void keyPressed() {
 void buildLines() {
   for (int i = 110; i < 60 + 1080; i += 50) {
     stroke(220);
+    strokeWeight(1);
     line(i, 40, i, 40 + 680);
   }
     
   for (int i = 100; i < 40 + 680; i += 60) {
     stroke(220);
+    strokeWeight(1);
     line(60, i, 60 + 1080, i);
   }
 }

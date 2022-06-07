@@ -4,13 +4,14 @@ String line;
 public class Graph {
   private ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
+  private String ticker;
   int dateYCor = 40;
   int dateXCor = 990;
 
   public Graph(){
   }
   
-  void start() {  
+  void start(String ticker) {  
     fill(200);
     rect(60.0, 40.0, 1080.0, 680.0);
     
@@ -72,7 +73,7 @@ public class Graph {
      textSize(9);
      text(dates.get(i), -560, xcor);
      popMatrix();
-     xcor -= 50;
+     xcor -= 120;
     }
   }
   
@@ -87,7 +88,7 @@ public class Graph {
   }
     
   void shiftCandles(int dirX, int dirY) {
-    background(170);
+    background(255);
     fill(200);
     stroke(255);
     rect(60.0, 40.0, 1080.0, 680.0);

@@ -18,19 +18,24 @@ public class Tools {
   }
     
    void displayTrendLineOne(int sx, int sy) {
-    if (mode.equals("TrendLine")) {
-      fill(0,255,0);
-      circle(sx, sy, 12.0);
+     if (!((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50)))) {
+        if (mode.equals("TrendLine")) {
+        fill(0,0,0);
+        circle(sx, sy, 6.0);
     }
+     }
+    
    }
    
    void displayTrendLineTwo(int sx, int sy) {
+     if (!((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50)))) {
     if (mode.equals("TrendLine")) {
-      fill(255, 0,0);
-      circle(mouseX, mouseY, 12.0);
+      fill(0, 0,0);
+      circle(mouseX, mouseY, 6.0);
       stroke(0);
       line(sx, sy, mouseX, mouseY);
     }
+     }
    }
    
    void displayText(String text) {
@@ -38,7 +43,8 @@ public class Tools {
      if (mode.equals("TextBox")) {
        
        if (mousePressed) {
-         strokeWeight(2);
+         stroke(100, 100, 100);
+         fill(0);
          text(message, mouseX, mouseY);
        }
      }

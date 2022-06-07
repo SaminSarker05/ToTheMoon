@@ -25,9 +25,9 @@ public class Candle {
         float topWick = (float) (high - close);
         float bottomWick = (float) (open - low);
         
-        stroke(170);
+        stroke(255);
         strokeWeight(1);
-        fill(170);
+        fill(255);
         rect(xcor, ycor, candleWidth, height);
         
         line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
@@ -37,9 +37,9 @@ public class Candle {
         float topWick = (float) (high - open);
         float bottomWick = (float) (close-low);
         
-        stroke(170);
+        stroke(255);
         strokeWeight(1);
-        fill(170);
+        fill(255);
         rect(xcor, ycor, candleWidth, height);
        
         line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
@@ -47,7 +47,6 @@ public class Candle {
       }
     
     } else {
-    
       this.xcor = xCor;
       this.ycor = yCor;
     
