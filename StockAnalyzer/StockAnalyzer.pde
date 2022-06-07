@@ -169,6 +169,7 @@ void mousePressed(){
     System.out.println("here");
     stroke(0);
     fill(0);
+    textSize(13); 
     text("Type message and press enter. Then click anywhere to insert text", 450, 70);
   } else if (mouseOnButton == 3 && mode.equals("TextBox")) {
     mode = "Pointer";
