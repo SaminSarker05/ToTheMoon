@@ -62,7 +62,6 @@ public class Graph {
   }
   
   void buildXAxis(int shift) {
-   
    this.dateXCor += shift;
    int xcor = dateXCor;
    for (int i = 0; i < dates.size() ; i+=20) {
@@ -70,9 +69,8 @@ public class Graph {
      float angle1 = radians(270);
      translate(100, 180);
      rotate(angle1);
-     textSize(10);
-     text(dates.get(i), -550, xcor);
-     line(100, 0, 150, 0);
+     textSize(9);
+     text(dates.get(i), -560, xcor);
      popMatrix();
      xcor -= 50;
     }
@@ -89,7 +87,7 @@ public class Graph {
   }
     
   void shiftCandles(int dirX, int dirY) {
-    background(255);
+    background(170);
     fill(200);
     stroke(255);
     rect(60.0, 40.0, 1080.0, 680.0);
