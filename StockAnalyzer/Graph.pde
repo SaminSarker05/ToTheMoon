@@ -5,7 +5,7 @@ public class Graph {
   private ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
   int dateYCor = 40;
-  int dateXCor = 1100;;
+  int dateXCor = 990;
 
   public Graph(){
   }
@@ -62,23 +62,20 @@ public class Graph {
   }
   
   void buildXAxis(int shift) {
-   //this.dateYCor += shift;
-   //int ycor = dateYCor;
-   //for (int i = high; i >= 0; i-= 40){
-   //  fill(0);
-   //  text(i, 1150, ycor);
-   //  ycor += 42;
-   //}
    
-   //this.dateXCor += shift;
-   //int xcor = dateXCor;
-   //for (int i = dates.size()-1; i >= 0 ; i-=10){
-   //   fill(0);
-   //   textSize(6);
-   //   //rotate(HALF_PI);
-   //   text(dates.get(i), xcor, 600);
-   //   xcor -= 50;
-   // }
+   this.dateXCor += shift;
+   int xcor = dateXCor;
+   for (int i = 0; i < dates.size() ; i+=20) {
+     pushMatrix();
+     float angle1 = radians(270);
+     translate(100, 180);
+     rotate(angle1);
+     textSize(10);
+     text(dates.get(i), -550, xcor);
+     line(100, 0, 150, 0);
+     popMatrix();
+     xcor -= 50;
+    }
   }
   
   double findHighestHigh(){

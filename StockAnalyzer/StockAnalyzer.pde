@@ -10,14 +10,18 @@ boolean shift = false;
 String typing = "";
 String saved = "";
 
+int frames;
+
 Button marker = new Button(60, 120, "Marker");
 Button trendLine = new Button(60, 250, "Trendline");
 Button textBox = new Button(60, 380, "TextBox");
 
 void setup() {
+  frameRate(500);
   size(1400, 750);
   background(255);
   instance.start();
+  frames = 500;
 }
 
 void draw(){
@@ -80,16 +84,22 @@ void draw(){
     textSize(10);
     text("TextBox", 11, 40 + 60 * 2 + 50/2);
     mouseOnButton = 3;
-  } else if ((mouseX > 40 && mouseX < 1140) && (mouseY > 40 && mouseY < 720)) {
+  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
-    int x = mouseX;
-    int y = mouseY;
-
+    //int x = mouseX;
+    //int y = mouseY;
+    //stroke(0);
+    //line(60, y, x, y);
+    //line(x, y, 60 + 1080, y);
+    //line(x, 40, x, y);
+    //line(x, y, x, 40 + 680);
   } else {
     cursor(ARROW);
     mouseOnButton = -1;
   }
+  
+  frames += 500;
   
   
   Tools x = new Tools(mode, fpoint);
@@ -176,13 +186,13 @@ void keyPressed() {
 }
 
 void buildLines() {
-  for (int i = 110; i < 60 + 1080; i+= 50) {
-    stroke(230);
+  for (int i = 110; i < 60 + 1080; i += 50) {
+    stroke(220);
     line(i, 40, i, 40 + 680);
   }
     
   for (int i = 100; i < 40 + 680; i += 60) {
-    stroke(230);
+    stroke(220);
     line(60, i, 60 + 1080, i);
   }
 }
