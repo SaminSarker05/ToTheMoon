@@ -18,10 +18,11 @@ boolean shift = false;
 String typing = "";
 String saved = "";
 
+/*
 Button marker = new Button(60, 120, "Marker");
 Button trendLine = new Button(60, 250, "Trendline");
 Button textBox = new Button(60, 380, "TextBox");
-
+*/
 
 void startScreen() {
   background(0);
@@ -64,6 +65,9 @@ void draw(){
   
   fill(200);
   rect(5, 40 + 60 * 3, 50, 50);
+  fill(0);
+  textSize(10);
+  text("S.M.V", 17, 40 + 60 * 3 + 29);
   
   fill(200);
   rect(5, 40 + 60 * 4, 50, 50);
