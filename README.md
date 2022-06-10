@@ -76,3 +76,24 @@ Samin - Conducted research on creating eraser/delete tools.
 Taee - Attempted to implement the zooming in/out feature, ran into several problems.
 
 Samin - Changed the program layout, added grid lines, updated axis.
+
+6/7
+
+Taee - Fixed the trendline bug by increasing press area for a button
+
+Samin - Made the axis dissapear at certain point on screen
+
+6/8
+
+Taee - 
+
+
+6/9
+
+Taee - Started developing simple moving average tool
+
+Samin - Helped Taee start developing new SMA tool
+
+
+
+
