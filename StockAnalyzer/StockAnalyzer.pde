@@ -101,7 +101,16 @@ void draw(){
     stroke(0);
     text("TextBox", 11, 40 + 60 * 2 + 50/2);
     mouseOnButton = 3;
-  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
+  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 3) && mouseY <= (40 + 60 * 3 + 50))) {
+    cursor(ARROW);
+    fill(220);
+    rect(5, 40 + 60 * 3, 50, 50);
+    textSize(10);
+    stroke(0);
+    text("S.M.A", 17, 40 + 60 * 3 + 50/2);
+    mouseOnButton = 4;
+  }
+  else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
     //int x = mouseX;
@@ -176,6 +185,11 @@ void mousePressed(){
     textSize(13); 
     text("Type message and press enter. Then click anywhere to insert text", 450, 70);
   } else if (mouseOnButton == 3 && mode.equals("TextBox")) {
+    mode = "Pointer";
+  } 
+  if ((mouseOnButton == 4 && mode.equals("Pointer"))) {
+    mode = "S.M.V";
+  } else if (mouseOnButton == 4 && mode.equals("S.M.V")) {
     mode = "Pointer";
   }
 }
