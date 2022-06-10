@@ -83,10 +83,6 @@ Taee - Fixed the trendline bug by increasing press area for a button
 
 Samin - Made the axis dissapear at certain point on screen
 
-6/8
-
-Taee - 
-
 
 6/9
 
