@@ -53,4 +53,28 @@ public class Tools {
        }
      }
   }
+  
+  void displayAverage(ArrayList<Candle> allCandles) {
+    int size = allCandles.size();
+    double total = 0.0;
+    ArrayList<Double> averages = new ArrayList<Double>();
+    for (int x = size - 1; x > 19; x--) {
+      total += allCandles.get(x).getClose();
+      for (int y = size-2; y > x-20; y--) {
+        total += allCandles.get(y).getClose();
+      }
+      averages.add(0, total/20);
+      total = 0;
+    }
+    for (int x = 19; x >= 0; x--) {
+      total += allCandles.get(x).getClose();
+      for (int y = x - 1; y >= 0; y--) {
+        total += allCandles.get(y).getClose();
+      }
+      averages.add(0, total/20);
+      total = 0;
+    }
+    
+  }
+  
 }

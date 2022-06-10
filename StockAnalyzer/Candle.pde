@@ -94,4 +94,8 @@ public class Candle {
   double getHigh(){
     return this.high;
   }
+  
+  double getClose() {
+    return this.close;
+  }
 }
