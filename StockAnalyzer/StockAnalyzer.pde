@@ -13,6 +13,7 @@ String saved = "";
 Button marker = new Button(60, 120, "Marker");
 Button trendLine = new Button(60, 250, "Trendline");
 Button textBox = new Button(60, 380, "TextBox");
+boolean opening;
 
 
 void startScreen() {
@@ -20,15 +21,20 @@ void startScreen() {
 }
 
 void setup() {
-  startScreen();
-  
   frameRate(500);
   size(1400, 750);
   background(255);
   instance.start("TSLA");
+  opening = true;
+  
 }
 
 void draw(){
+    //background(0);
+    //stroke(255);
+    //text("Enter a ticker symbol", 100, 100);
+    
+    //opening = false;
   buildLines();
 
   fill(0);
@@ -115,6 +121,7 @@ void draw(){
     instance.buildYAxis(0);
     instance.buildXAxis(0);
   }
+  
 }
 
 void mouseClicked() {

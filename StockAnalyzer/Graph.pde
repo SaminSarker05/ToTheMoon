@@ -9,6 +9,7 @@ public class Graph {
   int dateXCor = 990;
 
   public Graph(){
+    
   }
   
   void start(String ticker) {  
