@@ -5,6 +5,8 @@ public class Graph {
   public ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
   private ArrayList<Dot> dots = new ArrayList<Dot>();
+  private ArrayList<Dot> upper = new ArrayList<Dot>();
+  private ArrayList<Dot> lower = new ArrayList<Dot>();
 
   private String ticker;
   int dateYCor = 40;
@@ -19,6 +21,8 @@ public class Graph {
     int xcor = 1080;
     retrieve();
     double yAvgCor = 0;
+    double sum = 0;
+    double SD = 0;
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
       
@@ -27,9 +31,24 @@ public class Graph {
           yAvgCor += Candles.get(j).getHeight();
         }
         yAvgCor /= 20;
+        for (int j = i; j < i + 20; j++) {
+            sum += (Candles.get(j).getHeight() - yAvgCor) * (Candles.get(j).getHeight() - yAvgCor);
+        }
+          
+        SD = Math.pow(sum/20, 0.5);
+        Dot du = new Dot(xcor, 1300- (int) (yAvgCor + SD));
+        Dot dl = new Dot(xcor, 1300 -(int) (yAvgCor - SD));
+        
+        upper.add(du);
+        lower.add(dl);
+        
+        
+        
         Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
         dots.add(d);
         yAvgCor = 0;
+        sum = 0;
+        SD = 0;
       }
       xcor -= 6;
     }
@@ -136,6 +155,43 @@ public class Graph {
       int currentX = dots.get(i).getX();
       int currentY = dots.get(i).getY();
       dots.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    
+    for (int i = 0; i < dots.size()-1; i++) {
+      stroke(82,158,255);
+      strokeWeight(0.5);
+      if (dots.get(i).getX() > 60 && dots.get(i).getX() < 1140 && dots.get(i).getY() > 40 && dots.get(i).getY() < 720) {
+        line(dots.get(i).getX(),   dots.get(i).getY(),   dots.get(i+1).getX(),   dots.get(i+1).getY());
+      }
+    }
+  }
+  
+  void shiftCandlesAndPointsTwo(int dirX, int dirY) {
+    background(255);
+    fill(200);
+    stroke(255);
+    rect(60.0, 40.0, 1080.0, 680.0);
+    
+    for (int i = 0; i < Candles.size(); i++){
+      int currentX = Candles.get(i).getXCor();
+      int currentY = Candles.get(i).getYCor();
+      Candles.get(i).display((int) currentX + dirX, currentY + dirY);
+    }
+    
+    for (int i = 0; i < dots.size(); i++){
+      int currentX = dots.get(i).getX();
+      int currentY = dots.get(i).getY();
+      dots.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    for (int i = 0; i < lower.size(); i++){
+      int currentX = lower.get(i).getX();
+      int currentY = lower.get(i).getY();
+      lower.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    for (int i = 0; i < upper.size(); i++){
+      int currentX = upper.get(i).getX();
+      int currentY = upper.get(i).getY();
+      upper.get(i).plotPoint(currentX + dirX,  currentY + dirY);
     }
     
     for (int i = 0; i < dots.size()-1; i++) {

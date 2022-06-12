@@ -2,7 +2,8 @@ public class Tools {
   private String mode;
   private boolean fpoint;
   private ArrayList<Dot> dots = new ArrayList<Dot>();
-
+  private ArrayList<Dot> upper = new ArrayList<Dot>();
+  private ArrayList<Dot> lower = new ArrayList<Dot>();
 
   public Tools (String mode, boolean fpoint) {
     this.mode = mode;
@@ -106,6 +107,7 @@ public class Tools {
      }
   }
   
+  
   void displaySMA(ArrayList<Candle> Candles) {
     if (mode.equals("S.M.A")){
       int xcor = 1080;
@@ -117,7 +119,6 @@ public class Tools {
           }
           yAvgCor /= 20;
           Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
-          //plotPoint(xcor,  (int) yAvgCor);
           dots.add(d);
           yAvgCor = 0;
         }
@@ -125,5 +126,57 @@ public class Tools {
       }
     }
    }
+   
+   
+   void displayBollinger(ArrayList<Candle> Candles) {
+    if (mode.equals("Bollinger")){
+      int xcor = 1080;
+      double yAvgCor = 0;
+      double sum = 0;
+      double SD = 0;
+      for (int i = 0; i < Candles.size(); i++){
+        if (i + 20 < Candles.size()){
+          for (int j = i; j < i + 20; j++) {
+            yAvgCor += Candles.get(j).getHeight();
+          }
+          yAvgCor /= 20;
+          
+          
+          
+          for (int j = i; j < i + 20; j++) {
+            sum += (Candles.get(j).getHeight() - yAvgCor) * (Candles.get(j).getHeight() - yAvgCor);
+          }
+          
+          SD = Math.pow(sum/20, 0.5);
+          Dot du = new Dot(xcor, 1300- (int) (yAvgCor + SD));
+          Dot dl = new Dot(xcor, 1300 -(int) (yAvgCor - SD));
+          upper.add(du);
+          lower.add(dl);
+          Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
+          dots.add(d);
+          yAvgCor = 0;
+          sum = 0;
+          SD = 0;
+        }
+        xcor -= 6;
+      }
+    }
+    
+   }
+   
+   void plotPoint(int xCor, int yCor){
+
+
+    if (xCor > 60 && xCor < 1140 && yCor > 40 && yCor < 720) {
+      stroke(0);
+      fill(255,255,255);
+      circle(xCor, yCor, 1);
+    } else {
+      stroke(255);
+      fill(255,255,255);
+      circle(xCor, yCor, 1);
+    }
+
+  }
 
 }
