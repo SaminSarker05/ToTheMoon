@@ -15,8 +15,9 @@ public class Graph {
   public Graph(){}
   
   void start(String ticker) {  
-    fill(200);
-    rect(60.0, 40.0, 1080.0, 680.0);
+    fill(192,192,192);
+    rect(60.0, 40.0, 1080.0, 680.0, 7);
+    rect(5, 40, 50, 680, 6);
     
     int xcor = 1080;
     retrieve();
@@ -128,9 +129,9 @@ public class Graph {
     
   void shiftCandles(int dirX, int dirY) {
     background(255);
-    fill(200);
-    stroke(255);
-    rect(60.0, 40.0, 1080.0, 680.0);
+    fill(192,192,192);
+    stroke(0);
+    rect(60.0, 40.0, 1080.0, 680.0, 7);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -140,10 +141,10 @@ public class Graph {
   }
   
   void shiftCandlesAndPoints(int dirX, int dirY) {
-    background(255);
-    fill(200);
+    background(192,192,192);
+    fill(192,192,192);
     stroke(255);
-    rect(60.0, 40.0, 1080.0, 680.0);
+    rect(60.0, 40.0, 1080.0, 680.0, 7);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -167,10 +168,10 @@ public class Graph {
   }
   
   void shiftCandlesAndPointsTwo(int dirX, int dirY) {
-    background(255);
+    background(192,192,192);
     fill(200);
     stroke(255);
-    rect(60.0, 40.0, 1080.0, 680.0);
+    rect(60.0, 40.0, 1080.0, 680.0, 7);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();

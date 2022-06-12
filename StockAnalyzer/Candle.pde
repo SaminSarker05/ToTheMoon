@@ -46,7 +46,7 @@ public class Candle {
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       }
     
-    } else {
+    } else{
       this.xcor = xCor;
       this.ycor = yCor;
     

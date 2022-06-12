@@ -12,6 +12,8 @@ String typing = "";
 String saved = "";
 boolean movePoints = false;
 
+PImage img1, img2, img3, img4, img5, img6;
+
 void startScreen() {
   background(0);
 }
@@ -21,7 +23,7 @@ void setup() {
   size(1400, 750);
   background(255);
   instance.start("TSLA");
-  
+  //img1 = loadImage("pen.png");
 }
 
 void draw() {
@@ -33,95 +35,98 @@ void draw() {
   text("TSLA / USD  1D", 70, 80);
 
   fill(200);
-  rect(5, 40, 50, 50);
+  rect(10, 50, 40, 40);
   fill(0);
   textSize(10);
-  text("Marker", 14, 40 + 50/2);
+  //image(img1, 14, 40 + 50/2, width/36, height/18);
+  text("Pen", 21, 47 + 50/2);
 
   fill(200);
-  rect(5, 40 + 60, 50, 50);
+  rect(10, 50 + 60, 40, 40);
   fill(0);
   textSize(10);
-  text("Trend", 16, 40 + 60 + 50/2);
+  text("Trend", 16, 47 + 60 + 50/2);
 
   fill(200);
-  rect(5, 40 + 60 * 2, 50, 50);
+  rect(10, 50 + 120, 40, 40);
   fill(0);
   textSize(10);
-  text("TextBox", 11, 40 + 60 * 2 + 50/2);
+  text("Text", 19, 47 + 60 * 2 + 50/2);
 
   fill(200);
-  rect(5, 40 + 60 * 3, 50, 50);
+  rect(10, 50 + 180, 40, 40);
   fill(0);
   textSize(10);
-  text("S.M.A", 17, 40 + 60 * 3 + 29);
+  text("Sma", 20, 46 + 60 * 3 + 29);
 
 
   fill(200);
-  rect(5, 40 + 60 * 4, 50, 50);
+  rect(10, 50 + 240, 40, 40);
   fill(0);
   textSize(10);
-  text("Fib", 23, 40 + 60 * 4 + 29);
+  text("Fibb", 20, 45 + 60 * 4 + 29);
 
   fill(200);
-  rect(5, 40 + 60 * 5, 50, 50);
+  rect(10, 50 + 300, 40, 40);
   fill(0);
   textSize(10);
-  text("Bollinger", 9,  40 + 60 * 5 + 29);
+  text("BB", 24,  46 + 60 * 5 + 29);
 
   fill(200);
-  rect(5, 40 + 60 * 6, 50, 50);
+  rect(10, 50 + 360, 40, 40);
 
   if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= 40 && mouseY <= 40 + 50)) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40, 50, 50);
+    rect(10, 50, 40, 40);
     stroke(0);
     fill(0);
-    text("Marker", 14, 40 + 50/2);
+    text("Pen", 21, 47 + 50/2);
     mouseOnButton = 1;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60, 50, 50);
+    rect(10, 50 + 60, 40, 40);
     textSize(10);
     stroke(0);
     fill(0);
-    text("Trend", 16, 40 + 60 + 50/2);
+    text("Trend", 16, 47 + 60 + 50/2);
     mouseOnButton = 2;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 2) && mouseY <= (40 + 60 * 2 + 50))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 2, 50, 50);
+    rect(10, 50 + 120, 40, 40);
     textSize(10);
     stroke(0);
     fill(0);
-    text("TextBox", 11, 40 + 60 * 2 + 50/2);
+    text("Text", 19, 47 + 60 * 2 + 50/2);
     mouseOnButton = 3;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 3) && mouseY <= (40 + 60 * 3 + 50))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 3, 50, 50);
+    rect(10, 50 + 180, 40, 40);
     textSize(10);
     stroke(0);
     fill(0);
-    text("S.M.A", 17, 40 + 60 * 3 + 50/2);
+    text("Sma", 20, 46 + 60 * 3 + 29);
     mouseOnButton = 4;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 4) && mouseY <= (40 + 60 * 4 + 50))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 4, 50, 50);
+    rect(10, 50 + 240, 40, 40);
     textSize(10);
     stroke(0);
-    text("Fib", 23, 40 + 60 * 4 + 50/2);
+    fill(0);
+    text("Fibb", 20, 45 + 60 * 4 + 29);
     mouseOnButton = 5;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 5) && mouseY <= (40 + 60 * 5 + 50))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 5, 50, 50);
+    rect(10, 50 + 300, 40, 40);
     textSize(10);
     stroke(0);
-    text("Bollinger", 9, 40 + 60 * 5 + 50/2);
+    fill(0);
+    text("BB", 24,  46 + 60 * 5 + 29);
     mouseOnButton = 6;
   } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
@@ -265,15 +270,15 @@ void keyPressed() {
 }
 
 void buildLines() {
-  for (int i = 110; i < 60 + 1080; i += 50) {
+  for (int i = 110; i < 60 + 1080; i += 70) {
     stroke(220);
-    strokeWeight(1);
+    strokeWeight(0.5);
     line(i, 40, i, 40 + 680);
   }
 
-  for (int i = 100; i < 40 + 680; i += 60) {
+  for (int i = 100; i < 40 + 680; i += 50) {
     stroke(220);
-    strokeWeight(1);
+    strokeWeight(0.5);
     line(60, i, 60 + 1080, i);
   }
 }
