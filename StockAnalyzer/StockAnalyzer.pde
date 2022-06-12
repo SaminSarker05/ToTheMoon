@@ -9,6 +9,8 @@ int sx, sy;
 boolean shift = false;
 String typing = "";
 String saved = "";
+boolean movePoints = false;
+
 
 Button marker = new Button(60, 120, "Marker");
 Button trendLine = new Button(60, 250, "Trendline");
@@ -21,7 +23,7 @@ void startScreen() {
 }
 
 void setup() {
-  frameRate(500);
+  frameRate(1000);
   size(1400, 750);
   background(255);
   instance.start("TSLA");
@@ -30,11 +32,7 @@ void setup() {
 }
 
 void draw(){
-    //background(0);
-    //stroke(255);
-    //text("Enter a ticker symbol", 100, 100);
-    
-    //opening = false;
+
   buildLines();
 
   fill(0);
@@ -62,6 +60,9 @@ void draw(){
   
   fill(200);
   rect(5, 40 + 60 * 3, 50, 50);
+  fill(0);
+  textSize(10);
+  text("S.M.A", 18, 40 + 60 * 3 + 50/2);
   
   fill(200);
   rect(5, 40 + 60 * 4, 50, 50);
@@ -77,6 +78,7 @@ void draw(){
     fill(220);
     rect(5, 40, 50, 50);
     stroke(0);
+    fill(0);
     text("Marker", 14, 40 + 50/2);
     mouseOnButton = 1;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50))) {
@@ -85,6 +87,7 @@ void draw(){
     rect(5, 40 + 60, 50, 50);
     textSize(10);
     stroke(0);
+    fill(0);
     text("Trend", 16, 40 + 60 + 50/2);
     mouseOnButton = 2;
   } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 2) && mouseY <= (40 + 60 * 2 + 50))) {
@@ -93,34 +96,38 @@ void draw(){
     rect(5, 40 + 60 * 2, 50, 50);
     textSize(10);
     stroke(0);
+    fill(0);
     text("TextBox", 11, 40 + 60 * 2 + 50/2);
     mouseOnButton = 3;
+  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 3) && mouseY <= (40 + 60 * 3 + 50))) {
+    cursor(ARROW);
+    fill(220);
+    rect(5, 40 + 60 * 3, 50, 50);
+    textSize(10);
+    stroke(0);
+    fill(0);
+    text("S.M.A", 18, 40 + 60 * 3 + 50/2);
+    mouseOnButton = 4;
   } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
-    //int x = mouseX;
-    //int y = mouseY;
-    //stroke(0);
-    //line(60, y, x, y);
-    //line(x, y, 60 + 1080, y);
-    //line(x, 40, x, y);
-    //line(x, y, x, 40 + 680);
+
   } else {
     cursor(ARROW);
     mouseOnButton = -1;
   }
   
-  
   Tools x = new Tools(mode, fpoint);
-  
   x.displayMarker();
   x.displayText(saved);
+  x.displaySMA(instance.Candles);
   
   
   if (shift == false) {
     instance.buildYAxis(0);
     instance.buildXAxis(0);
   }
+  
   
 }
 
@@ -162,11 +169,18 @@ void mousePressed(){
     mode = "Pointer";
     saved = "";
   }
+  if ((mouseOnButton == 4 && mode.equals("Pointer"))) {
+    mode = "S.M.A";
+    //instance.updateSMA(true);
+  } else if (mouseOnButton == 4 && mode.equals("S.M.A")) {
+    mode = "Pointer";
+    //instance.updateSMA(false);
+  }
 }
 
 void mouseDragged() {
-  if (mode.equals("Pointer")) {
-    int shiftX;
+  
+  int shiftX;
     int shiftY;
     if (mouseX > currX) {
       shiftX = 7;
@@ -180,11 +194,23 @@ void mouseDragged() {
       shiftY = -7;
     } else shiftY = 0;
   
+  
+  if (mode.equals("Pointer")) {
     instance.shiftCandles(shiftX, shiftY);
+    
     if (shiftY != 0) shift = true;
     if (shiftX != 0) shift = true;
     instance.buildYAxis(shiftY);
     instance.buildXAxis(shiftX);
+  }
+  
+  if (mode.equals("S.M.A")){
+    //instance.shiftCandles(shiftX, shiftY);
+    instance.shiftPoints(shiftX, shiftY);
+    if (shiftY != 0) shift = true;
+    if (shiftX != 0) shift = true;
+    //instance.buildYAxis(shiftY);
+    //instance.buildXAxis(shiftX);
   }
 }
 

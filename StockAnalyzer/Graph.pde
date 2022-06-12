@@ -2,15 +2,16 @@ BufferedReader reader;
 String line;
 
 public class Graph {
-  private ArrayList<Candle> Candles = new ArrayList<Candle>();
+  public ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
+  private ArrayList<Dot> dots = new ArrayList<Dot>();
+  
+  public boolean sma = false;
   private String ticker;
   int dateYCor = 40;
   int dateXCor = 990;
 
-  public Graph(){
-    
-  }
+  public Graph(){}
   
   void start(String ticker) {  
     fill(200);
@@ -18,11 +19,26 @@ public class Graph {
     
     int xcor = 1080;
     retrieve();
+    double yAvgCor = 0;
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
+      
+      if (i + 20 < Candles.size()){
+        for (int j = i; j < i + 20; j++) {
+          yAvgCor += Candles.get(j).getHeight();
+        }
+        yAvgCor /= 20;
+        Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
+        dots.add(d);
+        yAvgCor = 0;
+      }
+      
       xcor -= 6;
     }
+      
   }
+  
+  
   
   void retrieve() {
     String[] lines = loadStrings("TSLA.csv");
@@ -36,7 +52,7 @@ public class Graph {
       Candle temp = new Candle(high, low, open, close);
       Candles.add(temp);
       dates.add(date);
-    }
+    } 
   }
   
   void buildYAxis(int shift) {
@@ -106,5 +122,39 @@ public class Graph {
       int currentY = Candles.get(i).getYCor();
       Candles.get(i).display((int) currentX + dirX, currentY + dirY);
     }
+  }
+  
+  void shiftPoints(int dirX, int dirY) {
+    background(255);
+    fill(200);
+    stroke(255);
+    rect(60.0, 40.0, 1080.0, 680.0);
+    
+    for (int i = 0; i < dots.size(); i++){
+      int currentX = dots.get(i).getX();
+      int currentY = dots.get(i).getY();
+      Candles.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+  }
+  
+  
+  void plotPoint(int xCor, int yCor){
+
+    
+    stroke(0);
+    fill(0,0,255);
+    circle(xCor, yCor, 1);
+
+  }
+  
+
+  
+  void updateSMA(boolean x) {
+    this.sma = x;
+  }
+  
+  
+  void connectDots() {
+    
   }
 }
