@@ -15,7 +15,7 @@ public class Candle {
   }
   
   void display(int xCor, int yCor) {
-    if (xCor > 1130 || xCor < 60 || yCor > 700 || yCor < 40){
+    if (xCor > 1140 || xCor < 60 || yCor > 700 || yCor < 40){
       
       this.xcor = xCor;
       this.ycor = yCor;
@@ -95,7 +95,14 @@ public class Candle {
     return this.high;
   }
   
-  double getClose() {
-    return this.close;
+  double getClose(){
+    return this.getClose();
   }
+  
+  void plotPoint(int xCor, int yCor){
+    stroke(0);
+    fill(0,0,255);
+    circle(xCor, yCor, 1);
+  }
+  
 }

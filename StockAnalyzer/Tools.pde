@@ -1,6 +1,8 @@
 public class Tools {
   private String mode;
   private boolean fpoint;
+  private ArrayList<Dot> dots = new ArrayList<Dot>();
+
 
   public Tools (String mode, boolean fpoint) {
     this.mode = mode;
@@ -91,8 +93,6 @@ public class Tools {
        line(sx, p5y, mouseX, p5y);
        text("100.0", sx - 10, p5y);
      }
-   
-     
    }
    
    void displayText(String text) {
@@ -106,27 +106,24 @@ public class Tools {
      }
   }
   
-  void displayAverage(ArrayList<Candle> allCandles) {
-    int size = allCandles.size();
-    double total = 0.0;
-    ArrayList<Double> averages = new ArrayList<Double>();
-    for (int x = size - 1; x > 19; x--) {
-      total += allCandles.get(x).getClose();
-      for (int y = size-2; y > x-20; y--) {
-        total += allCandles.get(y).getClose();
+  void displaySMA(ArrayList<Candle> Candles) {
+    if (mode.equals("S.M.A")){
+      int xcor = 1080;
+      double yAvgCor = 0;
+      for (int i = 0; i < Candles.size(); i++){
+        if (i + 20 < Candles.size()){
+          for (int j = i; j < i + 20; j++) {
+            yAvgCor += Candles.get(j).getHeight();
+          }
+          yAvgCor /= 20;
+          Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
+          //plotPoint(xcor,  (int) yAvgCor);
+          dots.add(d);
+          yAvgCor = 0;
+        }
+        xcor -= 6;
       }
-      averages.add(0, total/20);
-      total = 0;
     }
-    for (int x = 19; x >= 0; x--) {
-      total += allCandles.get(x).getClose();
-      for (int y = x - 1; y >= 0; y--) {
-        total += allCandles.get(y).getClose();
-      }
-      averages.add(0, total/20);
-      total = 0;
-    }
-    
-  }
-  
+   }
+
 }
