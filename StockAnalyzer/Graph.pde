@@ -16,8 +16,8 @@ public class Graph {
   
   void start(String ticker) {  
     fill(192,192,192);
-    rect(60.0, 40.0, 1080.0, 680.0, 7);
-    rect(5, 40, 50, 680, 6);
+    rect(60.0, 40.0, 1130.0, 695.0, 7);
+    rect(5, 40, 50, 695, 6);
     
     int xcor = 1080;
     retrieve();
@@ -77,7 +77,7 @@ public class Graph {
    int ycor = dateYCor;
    for (int i = high; i >= 0; i-= 40){
      int colour = 0;
-     if (ycor < 70 || ycor > 700){
+     if (ycor <= 70 || ycor >= 720){
        colour = 255;
      }
      fill(colour);
@@ -87,7 +87,7 @@ public class Graph {
    ycor = dateYCor;
    for (int i = high; i <= 10000; i+= 40){
      int colour = 0;
-     if (ycor < 70 || ycor > 700){
+     if (ycor < 40 || ycor > 700){
        colour = 255;
      }
      fill(colour);
@@ -106,11 +106,14 @@ public class Graph {
      rotate(angle1);
      textSize(9);
      int colour = 0;
-     if (xcor < -32 || xcor > 1040){
+     if (xcor < -33 && xcor > -90) {
+       colour = 192;
+     } else if (xcor < -30 || xcor > 1040){
        colour = 255;
      }
      fill(colour);
-     text(dates.get(i), -560, xcor);
+     stroke(0.5);
+     text(dates.get(i), -550, xcor);
      popMatrix();
      xcor -= 120;
     }
@@ -131,8 +134,8 @@ public class Graph {
     background(255);
     fill(192,192,192);
     stroke(0);
-    rect(60.0, 40.0, 1080.0, 680.0, 7);
-    rect(5, 40, 50, 680, 6);
+    rect(60.0, 40.0, 1130.0, 695.0, 7);
+    rect(5, 40, 50, 695, 6);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -145,7 +148,7 @@ public class Graph {
     background(192,192,192);
     fill(192,192,192);
     stroke(255);
-    rect(60.0, 40.0, 1080.0, 680.0, 7);
+    rect(60.0, 40.0, 1130.0, 680.0, 7);
     rect(5, 40, 50, 680, 6);
     
     for (int i = 0; i < Candles.size(); i++){
