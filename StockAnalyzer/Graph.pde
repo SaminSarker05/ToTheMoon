@@ -21,6 +21,8 @@ public class Graph {
     int xcor = 1080;
     retrieve();
     double yAvgCor = 0;
+    double sum = 0;
+    double SD = 0;
     for (int i = 0; i < Candles.size(); i++){
       Candles.get(i).display(xcor,  1300 - (int) Candles.get(i).getHeight());
       
@@ -29,9 +31,24 @@ public class Graph {
           yAvgCor += Candles.get(j).getHeight();
         }
         yAvgCor /= 20;
+        for (int j = i; j < i + 20; j++) {
+            sum += (Candles.get(j).getHeight() - yAvgCor) * (Candles.get(j).getHeight() - yAvgCor);
+        }
+          
+        SD = Math.pow(sum/20, 0.5);
+        Dot du = new Dot(xcor, 1300- (int) (yAvgCor + SD));
+        Dot dl = new Dot(xcor, 1300 -(int) (yAvgCor - SD));
+        
+        upper.add(du);
+        lower.add(dl);
+        
+        
+        
         Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
         dots.add(d);
         yAvgCor = 0;
+        sum = 0;
+        SD = 0;
       }
       xcor -= 6;
     }
@@ -165,6 +182,16 @@ public class Graph {
       int currentX = dots.get(i).getX();
       int currentY = dots.get(i).getY();
       dots.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    for (int i = 0; i < lower.size(); i++){
+      int currentX = lower.get(i).getX();
+      int currentY = lower.get(i).getY();
+      lower.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    for (int i = 0; i < upper.size(); i++){
+      int currentX = upper.get(i).getX();
+      int currentY = upper.get(i).getY();
+      upper.get(i).plotPoint(currentX + dirX,  currentY + dirY);
     }
     
     for (int i = 0; i < dots.size()-1; i++) {

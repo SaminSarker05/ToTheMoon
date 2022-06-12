@@ -107,7 +107,7 @@ public class Tools {
      }
   }
   
-  /*
+  
   void displaySMA(ArrayList<Candle> Candles) {
     if (mode.equals("S.M.A")){
       int xcor = 1080;
@@ -126,10 +126,10 @@ public class Tools {
       }
     }
    }
-   */
    
-   void displaySMA(ArrayList<Candle> Candles) {
-    if (mode.equals("S.M.A")){
+   
+   void displayBollinger(ArrayList<Candle> Candles) {
+    if (mode.equals("Bollinger")){
       int xcor = 1080;
       double yAvgCor = 0;
       double sum = 0;
@@ -148,8 +148,10 @@ public class Tools {
           }
           
           SD = Math.pow(sum/20, 0.5);
-          plotPoint(xcor, 1300- (int) (yAvgCor + SD));
-          plotPoint(xcor, 1300 -(int) (yAvgCor - SD));
+          Dot du = new Dot(xcor, 1300- (int) (yAvgCor + SD));
+          Dot dl = new Dot(xcor, 1300 -(int) (yAvgCor - SD));
+          upper.add(du);
+          lower.add(dl);
           Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
           dots.add(d);
           yAvgCor = 0;
