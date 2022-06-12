@@ -139,17 +139,6 @@ void draw() {
   Tools x = new Tools(mode, fpoint);
 
   x.displayMarker();
-  /*
-  translate(width / 2, height / 2); // zooms to center of screen
-   scale(scale);
-   translate(-xPan, -yPan);
-   if (zoomIn) {
-   scale *= zoomSpeed;
-   }
-   if (zoomOut) {
-   scale /= zoomSpeed;
-   }
-   */
   x.displayText(saved);
 
 
