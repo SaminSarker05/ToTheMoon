@@ -13,6 +13,7 @@ String saved = "";
 boolean movePoints = false;
 
 PImage img1, img2, img3, img4, img5, img6;
+PFont font;
 
 void startScreen() {
   background(0);
@@ -24,19 +25,22 @@ void setup() {
   background(255);
   instance.start("TSLA");
   //img1 = loadImage("pen.png");
+  font = loadFont("mono.vlw");
+  textFont(font);
 }
 
 void draw() {
   buildLines();
 
   fill(0);
-  stroke(255);
+  stroke(1);
   textSize(20);
   text("TSLA / USD  1D", 70, 80);
 
   fill(200);
   rect(10, 50, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
   //image(img1, 14, 40 + 50/2, width/36, height/18);
   text("Pen", 21, 47 + 50/2);
@@ -44,18 +48,21 @@ void draw() {
   fill(200);
   rect(10, 50 + 60, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
   text("Trend", 16, 47 + 60 + 50/2);
 
   fill(200);
   rect(10, 50 + 120, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
   text("Text", 19, 47 + 60 * 2 + 50/2);
 
   fill(200);
   rect(10, 50 + 180, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
   text("Sma", 20, 46 + 60 * 3 + 29);
 
@@ -63,17 +70,20 @@ void draw() {
   fill(200);
   rect(10, 50 + 240, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
   text("Fibb", 20, 45 + 60 * 4 + 29);
 
   fill(200);
   rect(10, 50 + 300, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
   text("BB", 24,  46 + 60 * 5 + 29);
 
   fill(200);
   rect(10, 50 + 360, 40, 40);
+  stroke(1);
 
   if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= 50 && mouseY <= 50 + 40)) {
     cursor(ARROW);
@@ -177,13 +187,11 @@ void mousePressed() {
   } else if (mouseOnButton == 1 && mode.equals("Marker")) {
     mode = "Pointer";
   }
-
   if ((mouseOnButton == 2 && mode.equals("Pointer"))) {
     mode = "TrendLine";
   } else if (mouseOnButton == 2 && mode.equals("TrendLine")) {
     mode = "Pointer";
   }
-
   if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
     mode = "TextBox";
     System.out.println("here");
