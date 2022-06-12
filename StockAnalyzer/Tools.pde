@@ -2,7 +2,8 @@ public class Tools {
   private String mode;
   private boolean fpoint;
   private ArrayList<Dot> dots = new ArrayList<Dot>();
-
+  private ArrayList<Dot> upper = new ArrayList<Dot>();
+  private ArrayList<Dot> lower = new ArrayList<Dot>();
 
   public Tools (String mode, boolean fpoint) {
     this.mode = mode;

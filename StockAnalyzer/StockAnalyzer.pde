@@ -243,6 +243,14 @@ void mouseDragged() {
     instance.buildYAxis(shiftY);
     instance.buildXAxis(shiftX);
   }
+  
+  if (mode.equals("Bollinger")) {
+    instance.shiftCandlesAndPointsTwo(shiftX, shiftY);
+    if (shiftY != 0) shift = true;
+    if (shiftX != 0) shift = true;
+    instance.buildYAxis(shiftY);
+    instance.buildXAxis(shiftX);
+  }
 }
 
 void keyPressed() {

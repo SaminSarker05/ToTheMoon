@@ -5,6 +5,8 @@ public class Graph {
   public ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
   private ArrayList<Dot> dots = new ArrayList<Dot>();
+  private ArrayList<Dot> upper = new ArrayList<Dot>();
+  private ArrayList<Dot> lower = new ArrayList<Dot>();
 
   private String ticker;
   int dateYCor = 40;
