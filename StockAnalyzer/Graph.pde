@@ -124,6 +124,25 @@ public class Graph {
     }
   }
   
+  void shiftCandlesAndPoints(int dirX, int dirY) {
+    background(255);
+    fill(200);
+    stroke(255);
+    rect(60.0, 40.0, 1080.0, 680.0);
+    
+    for (int i = 0; i < Candles.size(); i++){
+      int currentX = Candles.get(i).getXCor();
+      int currentY = Candles.get(i).getYCor();
+      Candles.get(i).display((int) currentX + dirX, currentY + dirY);
+    }
+    
+    for (int i = 0; i < dots.size(); i++){
+      int currentX = dots.get(i).getX();
+      int currentY = dots.get(i).getY();
+      dots.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+  }
+  
   void shiftPoints(int dirX, int dirY) {
     background(255);
     fill(200);
@@ -133,19 +152,18 @@ public class Graph {
     for (int i = 0; i < dots.size(); i++){
       int currentX = dots.get(i).getX();
       int currentY = dots.get(i).getY();
-      Candles.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+      dots.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    
+        for (int i = 0; i < dots.size()-1; i++) {
+      stroke(82,158,255);
+      strokeWeight(0.5);
+      line(dots.get(i).getX(),   dots.get(i).getY(),   dots.get(i+1).getX(),   dots.get(i+1).getY());
     }
   }
   
   
-  void plotPoint(int xCor, int yCor){
-
-    
-    stroke(0);
-    fill(0,0,255);
-    circle(xCor, yCor, 1);
-
-  }
+  
   
 
   

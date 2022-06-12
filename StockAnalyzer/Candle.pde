@@ -100,8 +100,6 @@ public class Candle {
   }
   
   void plotPoint(int xCor, int yCor){
-
-    
     stroke(0);
     fill(0,0,255);
     circle(xCor, yCor, 1);
