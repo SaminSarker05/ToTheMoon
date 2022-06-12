@@ -7,14 +7,16 @@ public class Graph {
   private ArrayList<Dot> dots = new ArrayList<Dot>();
   private ArrayList<Dot> upper = new ArrayList<Dot>();
   private ArrayList<Dot> lower = new ArrayList<Dot>();
-
   private String ticker;
+  
   int dateYCor = 40;
   int dateXCor = 990;
 
   public Graph(){}
   
-  void start(String ticker) {  
+  void start(String ticker) {
+    this.ticker = ticker;
+    
     fill(192,192,192);
     rect(60.0, 40.0, 1130.0, 695.0, 7);
     rect(5, 40, 50, 695, 6);
@@ -25,7 +27,7 @@ public class Graph {
     rect(1195, 40, 200, 695, 6);
     
     int xcor = 1080;
-    retrieve();
+    retrieve(this.ticker);
     double yAvgCor = 0;
     double sum = 0;
     double SD = 0;
@@ -60,8 +62,9 @@ public class Graph {
     }
   }
   
-  void retrieve() {
-    String[] lines = loadStrings("TSLA.csv");
+  void retrieve(String ticker) {
+    
+    String[] lines = loadStrings(ticker + ".csv");
     for (int i = lines.length-1 ; i >= 0; i--) {
       String[] data = lines[i].split(",");
       float open = Float.parseFloat(data[1]);

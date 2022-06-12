@@ -31,7 +31,7 @@ void setup() {
 
 void draw() {
   if (start == false && once) {
-    instance.start(saved);
+    instance.start(typing.substring(1));
     once = false;
   }
   
@@ -285,7 +285,6 @@ void keyPressed() {
   if (start) {
     if (key == '\n') {
       start = false;
-      typing = "";
     } else {
       typing += key;
       text(typing, 200,200);
