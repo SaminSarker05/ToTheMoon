@@ -12,24 +12,32 @@ String typing = "";
 String saved = "";
 boolean movePoints = false;
 
+boolean start = true;
+boolean once = true;
+
 PImage img1, img2, img3, img4, img5, img6;
 PFont font;
 
-void startScreen() {
-  background(0);
-}
 
 void setup() {
-  frameRate(1000);
   size(1400, 750);
+  frameRate(1000);
   background(255);
-  instance.start("TSLA");
-  //img1 = loadImage("pen.png");
+  fill(0);
+  text("Enter a ticker symbol: ", 100, 100);
   font = loadFont("mono.vlw");
   textFont(font);
 }
 
 void draw() {
+  if (start == false && once) {
+    instance.start(saved);
+    once = false;
+  }
+  
+  if (start == false){
+        
+    
   buildLines();
 
   fill(0);
@@ -161,6 +169,7 @@ void draw() {
     instance.buildYAxis(0);
     instance.buildXAxis(0);
   }
+  }
 }
 
 void mouseClicked() {
@@ -272,6 +281,17 @@ void mouseDragged() {
 }
 
 void keyPressed() {
+  
+  if (start) {
+    if (key == '\n') {
+      start = false;
+      typing = "";
+    } else {
+      typing += key;
+      text(typing, 200,200);
+    }
+  }
+  
   if (mode == "TextBox") {
     if (key == '\n') {
       saved = typing;
