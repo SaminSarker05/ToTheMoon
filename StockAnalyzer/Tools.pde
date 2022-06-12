@@ -74,12 +74,12 @@ public class Tools {
        text("100.0", mouseX - 10, p5y);
      } else {
        float distance = sy - mouseY;
-       float beginning = sy;
-       float p1y = beginning - (distance * 0.236);
-       float p2y = beginning - (distance * 0.382);
-       float p3y = beginning - (distance * 0.618);
-       float p4y = beginning - (distance * 0.786);
-       float p5y = beginning - distance;
+       float beginning = mouseY;
+       float p1y = beginning + (distance * 0.236);
+       float p2y = beginning + (distance * 0.382);
+       float p3y = beginning + (distance * 0.618);
+       float p4y = beginning + (distance * 0.786);
+       float p5y = beginning + distance;
        line(sx, p1y, mouseX, p1y);
        text("23.6", sx - 10, p1y);
        line(sx, p2y, mouseX, p2y);
