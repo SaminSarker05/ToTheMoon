@@ -157,8 +157,13 @@ void mouseClicked() {
       x.displayTrendLineOne(sx, sy);
       fpoint = true;
     } else {
-      x.displayTrendLineTwo(sx, sy);
-      fpoint = false;
+      if (mode.equals("TrendLine")) {
+        x.displayTrendLineTwo(sx, sy);
+        fpoint = false;
+      } else if (mode.equals("Fib")) {
+        x.displayTrendLineThree(sx, sy);
+        fpoint = false;
+      }
     }
   }
 }

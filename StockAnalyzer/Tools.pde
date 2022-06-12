@@ -57,17 +57,41 @@ public class Tools {
      if (mouseY > sy) {
        float distance = mouseY - sy;
        float beginning = mouseY;
+       float p1y = beginning - (distance * 0.236);
+       float p2y = beginning - (distance * 0.382);
+       float p3y = beginning - (distance * 0.618);
+       float p4y = beginning - (distance * 0.786);
+       float p5y = beginning - distance;
+       line(mouseX, p1y, sx, p1y);
+       text("23.6", mouseX - 10, p1y);
+       line(mouseX, p2y, sx, p2y);
+       text("38.2", mouseX - 10, p2y);
+       line(mouseX, p3y, sx, p3y);
+       text("61.8", mouseX - 10, p3y);
+       line(mouseX, p4y, sx, p4y);
+       text("78.6", mouseX - 10, p4y);
+       line(mouseX, p5y, sx, p5y);
+       text("100.0", mouseX - 10, p5y);
      } else {
        float distance = sy - mouseY;
        float beginning = sy;
+       float p1y = beginning - (distance * 0.236);
+       float p2y = beginning - (distance * 0.382);
+       float p3y = beginning - (distance * 0.618);
+       float p4y = beginning - (distance * 0.786);
+       float p5y = beginning - distance;
+       line(sx, p1y, mouseX, p1y);
+       text("23.6", sx - 10, p1y);
+       line(sx, p2y, mouseX, p2y);
+       text("38.2", sx - 10, p2y);
+       line(sx, p3y, mouseX, p3y);
+       text("61.8", sx - 10, p3y);
+       line(sx, p4y, mouseX, p4y);
+       text("78.6", sx - 10, p4y);
+       line(sx, p5y, mouseX, p5y);
+       text("100.0", sx - 10, p5y);
      }
-     float p1y = (distance * 0.236) + beginning;
-     float p2y = (distance * 0.382) + beginning;
-     float p3y = (distance * 0.618) + beginning;
-     float p4y = (distance * 0.788) + beginning;
-     float p5y = distance + beginning;
-     
-     //23.6, 38.2, 61.8, 78.6
+   
      
    }
    
