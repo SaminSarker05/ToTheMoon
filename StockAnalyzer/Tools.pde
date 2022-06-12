@@ -31,16 +31,44 @@ public class Tools {
    }
    
    void displayTrendLineTwo(int sx, int sy) {
-    if (mode.equals("TrendLine") || mode.equals("Fib")) {
+    if (mode.equals("TrendLine")) {
       fill(0);
       circle(mouseX, mouseY, 12.0);
-      if ((!((mouseX >= 5 && mouseX <= 55) && (mouseY >= (100) && mouseY <= (150)))) && (!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280))))) {
+      if ((!((mouseX >= 5 && mouseX <= 55) && (mouseY >= (100) && mouseY <= (150))))) {
         fill(0, 0,0);
         circle(mouseX, mouseY, 6.0);
         stroke(0);
         line(sx, sy, mouseX, mouseY);
       }
      }
+   }
+   
+   void displayTrendLineThree(int sx, int sy) {
+    if (mode.equals("Fib")) {
+      fill(0);
+      circle(mouseX, mouseY, 12.0);
+      if ((!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280))))) {
+        fill(0, 0,0);
+        circle(mouseX, mouseY, 6.0);
+        stroke(0);
+        line(sx, sy, mouseX, mouseY);
+      }
+     }
+     if (mouseY > sy) {
+       float distance = mouseY - sy;
+       float beginning = mouseY;
+     } else {
+       float distance = sy - mouseY;
+       float beginning = sy;
+     }
+     float p1y = (distance * 0.236) + beginning;
+     float p2y = (distance * 0.382) + beginning;
+     float p3y = (distance * 0.618) + beginning;
+     float p4y = (distance * 0.788) + beginning;
+     float p5y = distance + beginning;
+     
+     //23.6, 38.2, 61.8, 78.6
+     
    }
    
    void displayText(String text) {
