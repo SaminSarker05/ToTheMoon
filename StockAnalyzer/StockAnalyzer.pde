@@ -206,10 +206,10 @@ void mouseDragged() {
   
   if (mode.equals("S.M.A")){
     instance.shiftCandlesAndPoints(shiftX, shiftY);
-    //if (shiftY != 0) shift = true;
-    //if (shiftX != 0) shift = true;
-    //instance.buildYAxis(shiftY);
-    //instance.buildXAxis(shiftX);
+    if (shiftY != 0) shift = true;
+    if (shiftX != 0) shift = true;
+    instance.buildYAxis(shiftY);
+    instance.buildXAxis(shiftX);
   }
 }
 

@@ -65,26 +65,13 @@ public class Tools {
           }
           yAvgCor /= 20;
           Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
+          //plotPoint(xcor,  (int) yAvgCor);
           dots.add(d);
-          dots.get(i).plotPoint(xcor,  1300 - (int) yAvgCor);
           yAvgCor = 0;
         }
         xcor -= 6;
       }
     }
     
-    for (int i = 0; i < dots.size()-1; i++) {
-      stroke(82,158,255);
-      strokeWeight(0.5);
-      line(dots.get(i).getX(),   dots.get(i).getY(),   dots.get(i+1).getX(),   dots.get(i+1).getY());
-    }
-    
    }
-   
-   
-   
-   
-   
-   
-   
 }
