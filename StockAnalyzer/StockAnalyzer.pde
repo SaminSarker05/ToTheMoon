@@ -65,6 +65,9 @@ void draw() {
 
   fill(200);
   rect(5, 40 + 60 * 5, 50, 50);
+  fill(0);
+  textSize(10);
+  text("Bollinger", 9,  40 + 60 * 5 + 29);
 
   fill(200);
   rect(5, 40 + 60 * 6, 50, 50);
@@ -112,6 +115,14 @@ void draw() {
     stroke(0);
     text("Fib", 23, 40 + 60 * 4 + 50/2);
     mouseOnButton = 5;
+  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 5) && mouseY <= (40 + 60 * 5 + 50))) {
+    cursor(ARROW);
+    fill(220);
+    rect(5, 40 + 60 * 5, 50, 50);
+    textSize(10);
+    stroke(0);
+    text("Bollinger", 9, 40 + 60 * 5 + 50/2);
+    mouseOnButton = 6;
   } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
@@ -189,8 +200,15 @@ void mousePressed() {
     mode = "Fib";
   } else if (mouseOnButton == 5 && mode.equals("Fib")) {
     mode = "Pointer";
-
   }
+  
+  if ((mouseOnButton == 6 && mode.equals("Pointer"))) {
+    mode = "Bollinger";
+  } else if (mouseOnButton == 6 && mode.equals("Bollinger")) {
+    mode = "Pointer";
+  }
+  
+  
 }
 
 void mouseDragged() {

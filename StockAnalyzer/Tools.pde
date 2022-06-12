@@ -117,13 +117,32 @@ public class Tools {
           }
           yAvgCor /= 20;
           Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
-          //plotPoint(xcor,  (int) yAvgCor);
           dots.add(d);
           yAvgCor = 0;
         }
         xcor -= 6;
       }
     }
+   }
+   
+   void displayBollinger(ArrayList<Candle> Candles) {
+    if (mode.equals("S.M.A")){
+      int xcor = 1080;
+      double yAvgCor = 0;
+      for (int i = 0; i < Candles.size(); i++){
+        if (i + 20 < Candles.size()){
+          for (int j = i; j < i + 20; j++) {
+            yAvgCor += Candles.get(j).getHeight();
+          }
+          yAvgCor /= 20;
+          Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
+          dots.add(d);
+          yAvgCor = 0;
+        }
+        xcor -= 6;
+      }
+    }
+    
    }
 
 }
