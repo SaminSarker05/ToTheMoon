@@ -75,7 +75,7 @@ void draw() {
   fill(200);
   rect(10, 50 + 360, 40, 40);
 
-  if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= 40 && mouseY <= 40 + 50)) {
+  if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= 50 && mouseY <= 50 + 40)) {
     cursor(ARROW);
     fill(220);
     rect(10, 50, 40, 40);
@@ -83,7 +83,7 @@ void draw() {
     fill(0);
     text("Pen", 21, 47 + 50/2);
     mouseOnButton = 1;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60) && mouseY <= (50 + 60 + 40))) {
     cursor(ARROW);
     fill(220);
     rect(10, 50 + 60, 40, 40);
@@ -92,7 +92,7 @@ void draw() {
     fill(0);
     text("Trend", 16, 47 + 60 + 50/2);
     mouseOnButton = 2;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 2) && mouseY <= (40 + 60 * 2 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 2) && mouseY <= (50 + 60 * 2 + 40))) {
     cursor(ARROW);
     fill(220);
     rect(10, 50 + 120, 40, 40);
@@ -101,7 +101,7 @@ void draw() {
     fill(0);
     text("Text", 19, 47 + 60 * 2 + 50/2);
     mouseOnButton = 3;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 3) && mouseY <= (40 + 60 * 3 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 3) && mouseY <= (50 + 60 * 3 + 40))) {
     cursor(ARROW);
     fill(220);
     rect(10, 50 + 180, 40, 40);
@@ -110,7 +110,7 @@ void draw() {
     fill(0);
     text("Sma", 20, 46 + 60 * 3 + 29);
     mouseOnButton = 4;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 4) && mouseY <= (40 + 60 * 4 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 4) && mouseY <= (50 + 60 * 4 + 40))) {
     cursor(ARROW);
     fill(220);
     rect(10, 50 + 240, 40, 40);
@@ -119,7 +119,7 @@ void draw() {
     fill(0);
     text("Fibb", 20, 45 + 60 * 4 + 29);
     mouseOnButton = 5;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 5) && mouseY <= (40 + 60 * 5 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 5) && mouseY <= (50 + 60 * 5 + 40))) {
     cursor(ARROW);
     fill(220);
     rect(10, 50 + 300, 40, 40);
@@ -128,7 +128,7 @@ void draw() {
     fill(0);
     text("BB", 24,  46 + 60 * 5 + 29);
     mouseOnButton = 6;
-  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
+  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
   } else {
