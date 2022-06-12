@@ -147,6 +147,33 @@ public class Graph {
     }
   }
   
+  void shiftCandlesAndPointsTwo(int dirX, int dirY) {
+    background(255);
+    fill(200);
+    stroke(255);
+    rect(60.0, 40.0, 1080.0, 680.0);
+    
+    for (int i = 0; i < Candles.size(); i++){
+      int currentX = Candles.get(i).getXCor();
+      int currentY = Candles.get(i).getYCor();
+      Candles.get(i).display((int) currentX + dirX, currentY + dirY);
+    }
+    
+    for (int i = 0; i < dots.size(); i++){
+      int currentX = dots.get(i).getX();
+      int currentY = dots.get(i).getY();
+      dots.get(i).plotPoint(currentX + dirX,  currentY + dirY);
+    }
+    
+    for (int i = 0; i < dots.size()-1; i++) {
+      stroke(82,158,255);
+      strokeWeight(0.5);
+      if (dots.get(i).getX() > 60 && dots.get(i).getX() < 1140 && dots.get(i).getY() > 40 && dots.get(i).getY() < 720) {
+        line(dots.get(i).getX(),   dots.get(i).getY(),   dots.get(i+1).getX(),   dots.get(i+1).getY());
+      }
+    }
+  }
+  
   ArrayList<Candle> getCandles() {
     return Candles;
   }
