@@ -5,8 +5,7 @@ public class Graph {
   public ArrayList<Candle> Candles = new ArrayList<Candle>();
   private ArrayList<String> dates = new ArrayList<String>();
   private ArrayList<Dot> dots = new ArrayList<Dot>();
-  
-  public boolean sma = false;
+
   private String ticker;
   int dateYCor = 40;
   int dateXCor = 990;
@@ -32,13 +31,9 @@ public class Graph {
         dots.add(d);
         yAvgCor = 0;
       }
-      
       xcor -= 6;
     }
-      
   }
-  
-  
   
   void retrieve() {
     String[] lines = loadStrings("TSLA.csv");
@@ -110,6 +105,7 @@ public class Graph {
     }
     return high;
   }
+ 
     
   void shiftCandles(int dirX, int dirY) {
     background(255);
@@ -150,19 +146,9 @@ public class Graph {
       }
     }
   }
-
   
-  
-  
-  
-
-  
-  void updateSMA(boolean x) {
-    this.sma = x;
+  ArrayList<Candle> getCandles() {
+    return Candles;
   }
   
-  
-  void connectDots() {
-    
-  }
 }

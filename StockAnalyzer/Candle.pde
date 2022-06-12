@@ -105,5 +105,4 @@ public class Candle {
     circle(xCor, yCor, 1);
   }
   
-  
 }
