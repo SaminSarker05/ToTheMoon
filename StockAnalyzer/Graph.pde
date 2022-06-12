@@ -132,6 +132,7 @@ public class Graph {
     fill(192,192,192);
     stroke(0);
     rect(60.0, 40.0, 1080.0, 680.0, 7);
+    rect(5, 40, 50, 680, 6);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -145,6 +146,7 @@ public class Graph {
     fill(192,192,192);
     stroke(255);
     rect(60.0, 40.0, 1080.0, 680.0, 7);
+    rect(5, 40, 50, 680, 6);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -172,6 +174,7 @@ public class Graph {
     fill(200);
     stroke(255);
     rect(60.0, 40.0, 1080.0, 680.0, 7);
+    rect(5, 40, 50, 680, 6);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();

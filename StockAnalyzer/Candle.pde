@@ -15,7 +15,37 @@ public class Candle {
   }
   
   void display(int xCor, int yCor) {
-    if (xCor > 1140 || xCor < 60 || yCor > 700 || yCor < 40){
+    if (xCor >= 5 && xCor <= 55 && yCor >= 40 && yCor <= 720) {
+      this.xcor = xCor;
+      this.ycor = yCor;
+    
+      if (close >= open) {
+        float height = (float) (close - open);
+        float topWick = (float) (high - close);
+        float bottomWick = (float) (open - low);
+        
+        stroke(192,192,192);
+        strokeWeight(1);
+        fill(192,192,192);
+        rect(xcor, ycor, candleWidth, height);
+        
+        line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
+        line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+      } else if (close < open){
+        float height = (float) (open - close);
+        float topWick = (float) (high - open);
+        float bottomWick = (float) (close-low);
+        
+        stroke(192,192,192);
+        strokeWeight(1);
+        fill(192,192,192);
+        rect(xcor, ycor, candleWidth, height);
+       
+        line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
+        line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+      }
+      
+    } else if (xCor >= 1140 || xCor <= 60 || yCor >= 700 || yCor <= 40){
       
       this.xcor = xCor;
       this.ycor = yCor;
@@ -46,7 +76,7 @@ public class Candle {
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       }
     
-    } else{
+    } else {
       this.xcor = xCor;
       this.ycor = yCor;
     
