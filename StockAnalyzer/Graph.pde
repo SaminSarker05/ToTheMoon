@@ -86,6 +86,7 @@ public class Graph {
     }
     return high;
   }
+ 
     
   void shiftCandles(int dirX, int dirY) {
     background(255);
@@ -99,4 +100,9 @@ public class Graph {
       Candles.get(i).display((int) currentX + dirX, currentY + dirY);
     }
   }
+  
+  ArrayList<Candle> getCandles() {
+    return Candles;
+  }
+  
 }
