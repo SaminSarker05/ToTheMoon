@@ -67,10 +67,13 @@ void draw(){
   rect(5, 40 + 60 * 3, 50, 50);
   fill(0);
   textSize(10);
-  text("S.M.V", 17, 40 + 60 * 3 + 29);
+  text("S.M.A", 17, 40 + 60 * 3 + 29);
   
   fill(200);
   rect(5, 40 + 60 * 4, 50, 50);
+  fill(0);
+  textSize(10);
+  text("Fib", 23, 40 + 60 * 4 + 29);
   
   fill(200);
   rect(5, 40 + 60 * 5, 50, 50);
@@ -110,7 +113,15 @@ void draw(){
     text("S.M.A", 17, 40 + 60 * 3 + 50/2);
     mouseOnButton = 4;
   }
-  else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
+  else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 4) && mouseY <= (40 + 60 * 4 + 50))) {
+    cursor(ARROW);
+    fill(220);
+    rect(5, 40 + 60 * 4, 50, 50);
+    textSize(10);
+    stroke(0);
+    text("Fib", 23, 40 + 60 * 4 + 50/2);
+    mouseOnButton = 5;
+  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
     //int x = mouseX;
