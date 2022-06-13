@@ -285,11 +285,21 @@ void mouseDragged() {
 void keyPressed() {
   
   if (start) {
-    if (key == '\n') {
+    if (key == BACKSPACE){
+      
+        
+       typing = typing.substring(0, typing.length()-1);
+       fill(255);
+       rect(200, 200, 100, 100);
+       stroke(255);
+       text(typing, 200, 200);
+      
+    } else if (key == '\n') {
       start = false;
       ticker = typing;
     } else {
       typing += key;
+   
       text(typing, 100, 200);
     }
   }
