@@ -67,7 +67,7 @@ public class Graph {
     if (ticker.equals("TSLA")) scale = 1;
     if (ticker.equals("AAPL")) scale = 5;
     if (ticker.equals("AMD")) scale = 7.5;
-    if (ticker.equals("AMC")) scale = 20;
+    if (ticker.equals("NVDA")) scale = 3.7;
     if (ticker.equals("SPY")) scale = 2;
     
     String[] lines = loadStrings(ticker + ".csv");
@@ -95,9 +95,9 @@ public class Graph {
     } else if (ticker.equals("AMD")){
       scaleY = -95;
       increment = 5;
-    } else if (ticker.equals("AMC")){
-      scaleY = -150;
-      increment = 2;
+    } else if (ticker.equals("NVDA")){
+      scaleY = -180;
+      increment = 20;
     } else if (ticker.equals("SPY")){
       scaleY = 310;
       increment = 20;
