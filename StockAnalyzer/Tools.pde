@@ -132,9 +132,6 @@ public class Tools {
             yAvgCor += Candles.get(j).getHeight();
           }
           yAvgCor /= 20;
-          
-          
-          
           for (int j = i; j < i + 20; j++) {
             sum += (Candles.get(j).getHeight() - yAvgCor) * (Candles.get(j).getHeight() - yAvgCor);
           }

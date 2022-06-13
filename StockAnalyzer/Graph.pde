@@ -9,9 +9,8 @@ public class Graph {
   private ArrayList<Dot> lower = new ArrayList<Dot>();
   private String ticker;
   private float scale;
-  
-  int dateYCor = 40;
-  int dateXCor = 990;
+  private int dateYCor = 40;
+  private int dateXCor = 990;
 
   public Graph(){}
   
