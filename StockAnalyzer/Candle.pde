@@ -7,10 +7,10 @@ public class Candle {
   private float xcor;
   //1200
   private float ycor = 1200 - getHeight();
-  private int scale;
+  private float scale;
   
   
-  public Candle(double high, double low, double open, double close, int scale) {
+  public Candle(double high, double low, double open, double close, float scale) {
     this.high = high * scale;
     this.low = low * scale;
     this.open = open * scale;

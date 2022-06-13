@@ -8,7 +8,7 @@ public class Graph {
   private ArrayList<Dot> upper = new ArrayList<Dot>();
   private ArrayList<Dot> lower = new ArrayList<Dot>();
   private String ticker;
-  private int scale;
+  private float scale;
   
   int dateYCor = 40;
   int dateXCor = 990;
@@ -62,9 +62,11 @@ public class Graph {
   }
   
   void retrieve(String ticker) {
+    System.out.println(ticker);
     scale = 1;
     if (ticker.equals("TSLA")) scale = 1;
     if (ticker.equals("AAPL")) scale = 5;
+    if (ticker.equals("AMD")) scale = 7.5;
     
     String[] lines = loadStrings(ticker + ".csv");
     for (int i = lines.length-1 ; i >= 0; i--) {
@@ -88,10 +90,13 @@ public class Graph {
     if (ticker.equals("AAPL")){
       scaleY = 380;
       increment = 10;
+    } else if (ticker.equals("AMD")){
+      scaleY = -95;
+      increment = 5;
     }
     
    this.dateYCor += shift;
-   int high = (int) findHighestHigh()/scale;
+   int high = (int) findHighestHigh()/ (int)scale;
    high = Math.round(high/10.0) * 10; 
    int ycor = dateYCor + scaleY;
    for (int i = high; i >= 0; i-= increment){
