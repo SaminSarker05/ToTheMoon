@@ -26,7 +26,14 @@ void setup() {
   fill(0);
   font = loadFont("mono.vlw");
   textFont(font);
+  textSize(20);
   text("Enter a ticker symbol: ", 100, 100);
+  text("Stocks to choose form:", 800, 100);
+  text("tsla", 800, 200);
+  text("amd", 800, 250);
+  text("nvda", 800, 300);
+  text("spy", 800, 350);
+  text("aapl", 800, 400);
 }
 
 void draw() {
@@ -44,11 +51,11 @@ void draw() {
   //stroke(1);
   //textSize(10);
   //text("Return", 300, 30);
-
+  
   fill(0);
   stroke(1);
   textSize(20);
-  text("TSLA / USD  1D", 70, 80);
+  text(ticker + " / USD  1D", 70, 80);
 
   fill(200);
   rect(10, 50, 40, 40);
@@ -314,7 +321,7 @@ void keyPressed() {
       ticker = typing;
     } else {
       typing += key;
-      text(typing, 200,200);
+      text(typing, 100, 200);
     }
   }
   

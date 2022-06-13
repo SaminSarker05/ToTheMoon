@@ -65,7 +65,7 @@ public class Graph {
     System.out.println(ticker);
     scale = 1;
     if (ticker.equals("TSLA")) scale = 1;
-    if (ticker.equals("AAPL")) scale = 5;
+    if (ticker.equals("AAPL")) scale = 6;
     if (ticker.equals("AMD")) scale = 7.5;
     if (ticker.equals("NVDA")) scale = 3.7;
     if (ticker.equals("SPY")) scale = 2;
