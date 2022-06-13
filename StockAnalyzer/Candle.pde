@@ -25,7 +25,6 @@ public class Candle {
     
       if (close >= open) {
         float height = (float) (close - open) * 5;
-        //System.out.println(height);
         float topWick = (float) (high - close);
         float bottomWick = (float) (open - low);
         
@@ -38,7 +37,6 @@ public class Candle {
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       } else if (close < open){
         float height = (float) (open - close) * 5;
-        //System.out.println(height);
         float topWick = (float) (high - open);
         float bottomWick = (float) (close-low);
         
@@ -58,7 +56,6 @@ public class Candle {
     
       if (close >= open) {
         float height = (float) (close - open);
-        System.out.println(height);
         float topWick = (float) (high - close);
         float bottomWick = (float) (open - low);
         
@@ -71,7 +68,6 @@ public class Candle {
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       } else if (close < open){
         float height = (float) (open - close);
-        System.out.println(height);
         float topWick = (float) (high - open);
         float bottomWick = (float) (close-low);
         

@@ -21,14 +21,10 @@ public class Tools {
   }
     
    void displayTrendLineOne(int sx, int sy) {
-    if ((mode.equals("TrendLine") && (!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (90) && mouseY <= (170))))) || ((mode.equals("Fib")) && (!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280)))))) {
-      fill(0);
-      circle(sx, sy, 12.0);
-    }
-     if (mode.equals("TrendLine") || mode.equals("Fib")) {
-       if ((!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (90) && mouseY <= (170)))) && (!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280))))) {
-         fill(0,0,0);
-         circle(sx, sy, 6.0);
+     if ((mode.equals("TrendLine") || mode.equals("Fib")) && ((start == false) && (once == false))) {
+       if (((!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (90) && mouseY <= (170)))) && (!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280))))) && start == false) {
+         fill(0);
+         circle(sx, sy, 5.0);
        }
      }
    }
@@ -36,10 +32,10 @@ public class Tools {
    void displayTrendLineTwo(int sx, int sy) {
     if (mode.equals("TrendLine")) {
       fill(0);
-      circle(mouseX, mouseY, 12.0);
+      circle(mouseX, mouseY, 5.0);
       if ((!((mouseX >= 5 && mouseX <= 55) && (mouseY >= (100) && mouseY <= (150))))) {
         fill(0, 0,0);
-        circle(mouseX, mouseY, 6.0);
+        circle(mouseX, mouseY, 5.0);
         stroke(0);
         line(sx, sy, mouseX, mouseY);
       }
@@ -47,12 +43,10 @@ public class Tools {
    }
    
    void displayTrendLineThree(int sx, int sy) {
-    if (mode.equals("Fib")) {
-      fill(0);
-      circle(mouseX, mouseY, 12.0);
-      if ((!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280))))) {
+    if (mode.equals("Fib") && start == false) {
+      if ((!((mouseX >= 0 && mouseX <= 80) && (mouseY >= (200) && mouseY <= (280)))) && ((start == false) && (once == false))) {
         fill(0, 0,0);
-        circle(mouseX, mouseY, 6.0);
+        circle(mouseX, mouseY, 5.0);
         stroke(0);
         line(sx, sy, mouseX, mouseY);
       }
