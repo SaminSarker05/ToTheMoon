@@ -24,21 +24,26 @@ void setup() {
   frameRate(1000);
   background(255);
   fill(0);
-  text("Enter a ticker symbol: ", 100, 100);
   font = loadFont("mono.vlw");
   textFont(font);
+  text("Enter a ticker symbol: ", 100, 100);
 }
 
 void draw() {
   if (start == false && once) {
-    instance.start(typing);
+    instance.start(ticker);
     once = false;
   }
   
   if (start == false){
-        
-    
   buildLines();
+  
+  fill(200);
+  rect(10, 5, 600, 30);
+  fill(0);
+  stroke(1);
+  textSize(10);
+  text("Return", 300, 30);
 
   fill(0);
   stroke(1);
@@ -73,7 +78,6 @@ void draw() {
   stroke(1);
   textSize(10);
   text("Sma", 20, 46 + 60 * 3 + 29);
-
 
   fill(200);
   rect(10, 50 + 240, 40, 40);
@@ -151,6 +155,14 @@ void draw() {
     fill(0);
     text("BB", 24,  46 + 60 * 5 + 29);
     mouseOnButton = 6;
+  } else if ((mouseX >= 10 && mouseX <= 610) && (mouseY >= 5 && mouseY <= 35)) {
+    fill(220);
+    rect(10, 5, 600, 30);
+    fill(0);
+    stroke(1);
+    textSize(10);
+    text("Return", 300, 30);
+    mouseOnButton = 7;
   } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
@@ -235,6 +247,12 @@ void mousePressed() {
     mode = "Pointer";
   }
   
+  if (mouseOnButton == 7) {
+    start = true;
+    once = true;
+    setup();
+  }
+  
   
 }
 
@@ -283,8 +301,15 @@ void mouseDragged() {
 void keyPressed() {
   
   if (start) {
+    if (key == BACKSPACE){
+      ////if (typing.length() > 1) {
+      //  typing = typing.substring(0, typing.length()-1);
+      //  text(typing, 200,200);
+      ////}
+    }
     if (key == '\n') {
       start = false;
+      ticker = typing;
     } else {
       typing += key;
       text(typing, 200,200);
