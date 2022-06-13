@@ -5,23 +5,60 @@ public class Candle {
   private double open;
   private double close;
   private float xcor;
+  //1200
   private float ycor = 1200 - getHeight();
+  private float scale;
   
-  public Candle(double high, double low, double open, double close) {
-    this.high = high;
-    this.low = low;
-    this.open = open;
-    this.close = close;
+  
+  public Candle(double high, double low, double open, double close, float scale) {
+    this.high = high * scale;
+    this.low = low * scale;
+    this.open = open * scale;
+    this.close = close * scale;
+    this.scale = scale;
   }
   
   void display(int xCor, int yCor) {
-    if (xCor > 1140 || xCor < 60 || yCor > 700 || yCor < 40){
+    if (xCor >= 5 && xCor <= 55 && yCor >= 40 && yCor <= 720) {
+      this.xcor = xCor;
+      this.ycor = yCor;
+    
+      if (close >= open) {
+        float height = (float) (close - open) * 5;
+        //System.out.println(height);
+        float topWick = (float) (high - close);
+        float bottomWick = (float) (open - low);
+        
+        stroke(192,192,192);
+        strokeWeight(1);
+        fill(192,192,192);
+        rect(xcor, ycor, candleWidth, height);
+        
+        line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
+        line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+      } else if (close < open){
+        float height = (float) (open - close) * 5;
+        //System.out.println(height);
+        float topWick = (float) (high - open);
+        float bottomWick = (float) (close-low);
+        
+        stroke(192,192,192);
+        strokeWeight(1);
+        fill(192,192,192);
+        rect(xcor, ycor, candleWidth, height);
+       
+        line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
+        line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
+      }
+      
+    } else if (xCor >= 1140 || xCor <= 60 || yCor >= 700 || yCor <= 40){
       
       this.xcor = xCor;
       this.ycor = yCor;
     
       if (close >= open) {
         float height = (float) (close - open);
+        System.out.println(height);
         float topWick = (float) (high - close);
         float bottomWick = (float) (open - low);
         
@@ -34,6 +71,7 @@ public class Candle {
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       } else if (close < open){
         float height = (float) (open - close);
+        System.out.println(height);
         float topWick = (float) (high - open);
         float bottomWick = (float) (close-low);
         

@@ -12,118 +12,167 @@ String typing = "";
 String saved = "";
 boolean movePoints = false;
 
-void startScreen() {
-  background(0);
-}
+boolean start = true;
+boolean once = true;
+
+PImage img1, img2, img3, img4, img5, img6;
+PFont font;
+
 
 void setup() {
-  frameRate(1000);
   size(1400, 750);
+  frameRate(1000);
   background(255);
-  instance.start("TSLA");
-  
+  fill(0);
+  font = loadFont("mono.vlw");
+  textFont(font);
+  textSize(20);
+  text("Enter a ticker symbol: ", 100, 100);
+  text("Stocks to choose form:", 800, 100);
+  text("tsla", 800, 200);
+  text("amd", 800, 250);
+  text("nvda", 800, 300);
+  text("spy", 800, 350);
+  text("aapl", 800, 400);
 }
 
 void draw() {
+  if (start == false && once) {
+    instance.start(ticker);
+    once = false;
+  }
+  
+  if (start == false){
   buildLines();
-
+  
+  //fill(200);
+  //rect(10, 5, 600, 30);
+  //fill(0);
+  //stroke(1);
+  //textSize(10);
+  //text("Return", 300, 30);
+  
   fill(0);
-  stroke(255);
+  stroke(1);
   textSize(20);
-  text("TSLA / USD  1D", 70, 80);
+  text(ticker + " / USD  1D", 70, 80);
 
   fill(200);
-  rect(5, 40, 50, 50);
+  rect(10, 50, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
-  text("Marker", 14, 40 + 50/2);
+  //image(img1, 14, 40 + 50/2, width/36, height/18);
+  text("Pen", 21, 47 + 50/2);
 
   fill(200);
-  rect(5, 40 + 60, 50, 50);
+  rect(10, 50 + 60, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
-  text("Trend", 16, 40 + 60 + 50/2);
+  text("Trend", 16, 47 + 60 + 50/2);
 
   fill(200);
-  rect(5, 40 + 60 * 2, 50, 50);
+  rect(10, 50 + 120, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
-  text("TextBox", 11, 40 + 60 * 2 + 50/2);
+  text("Text", 19, 47 + 60 * 2 + 50/2);
 
   fill(200);
-  rect(5, 40 + 60 * 3, 50, 50);
+  rect(10, 50 + 180, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
-  text("S.M.A", 17, 40 + 60 * 3 + 29);
-
+  text("Sma", 20, 46 + 60 * 3 + 29);
 
   fill(200);
-  rect(5, 40 + 60 * 4, 50, 50);
+  rect(10, 50 + 240, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
-  text("Fib", 23, 40 + 60 * 4 + 29);
+  text("Fibb", 20, 45 + 60 * 4 + 29);
 
   fill(200);
-  rect(5, 40 + 60 * 5, 50, 50);
+  rect(10, 50 + 300, 40, 40);
   fill(0);
+  stroke(1);
   textSize(10);
-  text("Bollinger", 9,  40 + 60 * 5 + 29);
+  text("BB", 24,  46 + 60 * 5 + 29);
 
   fill(200);
-  rect(5, 40 + 60 * 6, 50, 50);
+  rect(10, 50 + 360, 40, 40);
+  stroke(1);
+  
+  fill(200);
+  rect(10, 50 + 420, 40, 40);
+  stroke(1);
+  
 
-  if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= 40 && mouseY <= 40 + 50)) {
+  if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= 50 && mouseY <= 50 + 40)) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40, 50, 50);
+    rect(10, 50, 40, 40);
     stroke(0);
     fill(0);
-    text("Marker", 14, 40 + 50/2);
+    text("Pen", 21, 47 + 50/2);
     mouseOnButton = 1;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60) && mouseY <= (40 + 60 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60) && mouseY <= (50 + 60 + 40))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60, 50, 50);
+    rect(10, 50 + 60, 40, 40);
     textSize(10);
     stroke(0);
     fill(0);
-    text("Trend", 16, 40 + 60 + 50/2);
+    text("Trend", 16, 47 + 60 + 50/2);
     mouseOnButton = 2;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 2) && mouseY <= (40 + 60 * 2 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 2) && mouseY <= (50 + 60 * 2 + 40))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 2, 50, 50);
+    rect(10, 50 + 120, 40, 40);
     textSize(10);
     stroke(0);
     fill(0);
-    text("TextBox", 11, 40 + 60 * 2 + 50/2);
+    text("Text", 19, 47 + 60 * 2 + 50/2);
     mouseOnButton = 3;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 3) && mouseY <= (40 + 60 * 3 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 3) && mouseY <= (50 + 60 * 3 + 40))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 3, 50, 50);
+    rect(10, 50 + 180, 40, 40);
     textSize(10);
     stroke(0);
     fill(0);
-    text("S.M.A", 17, 40 + 60 * 3 + 50/2);
+    text("Sma", 20, 46 + 60 * 3 + 29);
     mouseOnButton = 4;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 4) && mouseY <= (40 + 60 * 4 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 4) && mouseY <= (50 + 60 * 4 + 40))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 4, 50, 50);
+    rect(10, 50 + 240, 40, 40);
     textSize(10);
     stroke(0);
-    text("Fib", 23, 40 + 60 * 4 + 50/2);
+    fill(0);
+    text("Fibb", 20, 45 + 60 * 4 + 29);
     mouseOnButton = 5;
-  } else if ((mouseX >= 5 && mouseX <= 5 + 50) && (mouseY >= (40 + 60 * 5) && mouseY <= (40 + 60 * 5 + 50))) {
+  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 5) && mouseY <= (50 + 60 * 5 + 40))) {
     cursor(ARROW);
     fill(220);
-    rect(5, 40 + 60 * 5, 50, 50);
+    rect(10, 50 + 300, 40, 40);
     textSize(10);
     stroke(0);
-    text("Bollinger", 9, 40 + 60 * 5 + 50/2);
+    fill(0);
+    text("BB", 24,  46 + 60 * 5 + 29);
     mouseOnButton = 6;
-  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY > 40  && mouseY < 40 + 680)) {
+  } 
+  //else if ((mouseX >= 10 && mouseX <= 610) && (mouseY >= 5 && mouseY <= 35)) {
+  //  fill(220);
+  //  rect(10, 5, 600, 30);
+  //  fill(0);
+  //  stroke(1);
+  //  textSize(10);
+  //  text("Return", 300, 30);
+  //  mouseOnButton = 7;
+  //} 
+  else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
   } else {
@@ -140,6 +189,7 @@ void draw() {
   if (shift == false) {
     instance.buildYAxis(0);
     instance.buildXAxis(0);
+  }
   }
 }
 
@@ -172,13 +222,11 @@ void mousePressed() {
   } else if (mouseOnButton == 1 && mode.equals("Marker")) {
     mode = "Pointer";
   }
-
   if ((mouseOnButton == 2 && mode.equals("Pointer"))) {
     mode = "TrendLine";
   } else if (mouseOnButton == 2 && mode.equals("TrendLine")) {
     mode = "Pointer";
   }
-
   if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
     mode = "TextBox";
     System.out.println("here");
@@ -206,6 +254,12 @@ void mousePressed() {
     mode = "Bollinger";
   } else if (mouseOnButton == 6 && mode.equals("Bollinger")) {
     mode = "Pointer";
+  }
+  
+  if (mouseOnButton == 7) {
+    start = true;
+    once = true;
+    setup();
   }
   
   
@@ -254,6 +308,23 @@ void mouseDragged() {
 }
 
 void keyPressed() {
+  
+  if (start) {
+    if (key == BACKSPACE){
+      ////if (typing.length() > 1) {
+      //  typing = typing.substring(0, typing.length()-1);
+      //  text(typing, 200,200);
+      ////}
+    }
+    if (key == '\n') {
+      start = false;
+      ticker = typing;
+    } else {
+      typing += key;
+      text(typing, 100, 200);
+    }
+  }
+  
   if (mode == "TextBox") {
     if (key == '\n') {
       saved = typing;
@@ -265,15 +336,15 @@ void keyPressed() {
 }
 
 void buildLines() {
-  for (int i = 110; i < 60 + 1080; i += 50) {
+  for (int i = 110; i < 60 + 1080; i += 70) {
     stroke(220);
-    strokeWeight(1);
+    strokeWeight(0.5);
     line(i, 40, i, 40 + 680);
   }
 
-  for (int i = 100; i < 40 + 680; i += 60) {
+  for (int i = 100; i < 40 + 680; i += 50) {
     stroke(220);
-    strokeWeight(1);
+    strokeWeight(0.5);
     line(60, i, 60 + 1080, i);
   }
 }
