@@ -1,9 +1,8 @@
 String mode = "Pointer";
 String ticker;
-Graph instance = new Graph();
+int mouseOnButton;
 int currX;
 int currY;
-int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
 boolean shift = false;
@@ -13,10 +12,11 @@ boolean movePoints = false;
 boolean start = true;
 boolean once = true;
 PFont font;
+Graph instance = new Graph();
 
 
 void setup() {
-  size(1400, 750);
+  size(1195, 750);
   frameRate(1000);
   background(255);
   fill(0);
