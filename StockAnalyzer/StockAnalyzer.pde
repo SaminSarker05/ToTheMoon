@@ -37,6 +37,7 @@ void setup() {
 }
 
 void draw() {
+  
   if (start == false && once) {
     instance.start(ticker);
     once = false;
@@ -44,13 +45,6 @@ void draw() {
   
   if (start == false){
   buildLines();
-  
-  //fill(200);
-  //rect(10, 5, 600, 30);
-  //fill(0);
-  //stroke(1);
-  //textSize(10);
-  //text("Return", 300, 30);
   
   fill(0);
   stroke(1);
@@ -62,7 +56,6 @@ void draw() {
   fill(0);
   stroke(1);
   textSize(10);
-  //image(img1, 14, 40 + 50/2, width/36, height/18);
   text("Pen", 21, 47 + 50/2);
 
   fill(200);
@@ -154,17 +147,7 @@ void draw() {
     fill(0);
     text("BB", 24,  46 + 60 * 5 + 29);
     mouseOnButton = 6;
-  } 
-  //else if ((mouseX >= 10 && mouseX <= 610) && (mouseY >= 5 && mouseY <= 35)) {
-  //  fill(220);
-  //  rect(10, 5, 600, 30);
-  //  fill(0);
-  //  stroke(1);
-  //  textSize(10);
-  //  text("Return", 300, 30);
-  //  mouseOnButton = 7;
-  //} 
-  else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
+  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
   } else {
@@ -186,7 +169,7 @@ void draw() {
 }
 
 void mouseClicked() {
-  if (!((mouseX >= 100 && mouseX <= 200) && (mouseY >= 250 && mouseY <= 350))) {
+  if (mode != "Pointer" && (!((mouseX >= 10 && mouseX <= 100) && (mouseY >= 60 && mouseY <= 350)))) {
     Tools x = new Tools(mode, fpoint);
     if (!fpoint) {
       sx = mouseX;
@@ -302,12 +285,6 @@ void mouseDragged() {
 void keyPressed() {
   
   if (start) {
-    if (key == BACKSPACE){
-      ////if (typing.length() > 1) {
-      //  typing = typing.substring(0, typing.length()-1);
-      //  text(typing, 200,200);
-      ////}
-    }
     if (key == '\n') {
       start = false;
       ticker = typing;

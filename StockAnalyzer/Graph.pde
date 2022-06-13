@@ -24,9 +24,6 @@ public class Graph {
     stroke(255);
     line(5, 220, 55, 220 );
     
-    //stroke(0);
-    //rect(1195, 40, 200, 695, 6);
-    
     int xcor = 1080;
     retrieve(this.ticker);
     double yAvgCor = 0;
