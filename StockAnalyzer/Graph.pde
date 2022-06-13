@@ -167,7 +167,6 @@ public class Graph {
     stroke(255);
     line(5, 220, 55, 220 );
     
-    
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
       int currentY = Candles.get(i).getYCor();
@@ -206,7 +205,7 @@ public class Graph {
   }
   
   void shiftCandlesAndPointsTwo(int dirX, int dirY) {
-     background(255);
+    background(255);
     fill(192,192,192);
     stroke(0);
     rect(60.0, 40.0, 1130.0, 695.0, 7);
@@ -248,5 +247,4 @@ public class Graph {
   ArrayList<Candle> getCandles() {
     return Candles;
   }
-  
 }

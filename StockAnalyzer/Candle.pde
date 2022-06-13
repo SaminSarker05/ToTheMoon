@@ -5,17 +5,13 @@ public class Candle {
   private double open;
   private double close;
   private float xcor;
-  //1200
   private float ycor = 1200 - getHeight();
-  private float scale;
-  
   
   public Candle(double high, double low, double open, double close, float scale) {
     this.high = high * scale;
     this.low = low * scale;
     this.open = open * scale;
     this.close = close * scale;
-    this.scale = scale;
   }
   
   void display(int xCor, int yCor) {
@@ -138,5 +134,4 @@ public class Candle {
     fill(0,0,255);
     circle(xCor, yCor, 1);
   }
-  
 }

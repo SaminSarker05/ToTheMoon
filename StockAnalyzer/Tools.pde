@@ -101,7 +101,6 @@ public class Tools {
      }
   }
   
-  
   void displaySMA(ArrayList<Candle> Candles) {
     if (mode.equals("S.M.A")){
       int xcor = 1080;
@@ -120,7 +119,6 @@ public class Tools {
       }
     }
    }
-   
    
    void displayBollinger(ArrayList<Candle> Candles) {
     if (mode.equals("Bollinger")){
@@ -160,7 +158,6 @@ public class Tools {
    
    void plotPoint(int xCor, int yCor){
 
-
     if (xCor > 60 && xCor < 1140 && yCor > 40 && yCor < 720) {
       stroke(0);
       fill(255,255,255);
@@ -170,7 +167,5 @@ public class Tools {
       fill(255,255,255);
       circle(xCor, yCor, 1);
     }
-
   }
-
 }

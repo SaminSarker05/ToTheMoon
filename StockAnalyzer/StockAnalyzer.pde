@@ -6,16 +6,12 @@ int currY;
 int mouseOnButton;
 boolean fpoint = false;
 int sx, sy;
-
 boolean shift = false;
 String typing = "";
 String saved = "";
 boolean movePoints = false;
-
 boolean start = true;
 boolean once = true;
-
-PImage img1, img2, img3, img4, img5, img6;
 PFont font;
 
 
@@ -37,134 +33,131 @@ void setup() {
 }
 
 void draw() {
-  
   if (start == false && once) {
     instance.start(ticker);
     once = false;
   }
   
   if (start == false){
-  buildLines();
+    buildLines();
+    
+    fill(0);
+    stroke(1);
+    textSize(20);
+    text(ticker + " / USD  1D", 70, 80);
   
-  fill(0);
-  stroke(1);
-  textSize(20);
-  text(ticker + " / USD  1D", 70, 80);
-
-  fill(200);
-  rect(10, 50, 40, 40);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("Pen", 21, 47 + 50/2);
-
-  fill(200);
-  rect(10, 50 + 60, 40, 40);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("Trend", 16, 47 + 60 + 50/2);
-
-  fill(200);
-  rect(10, 50 + 120, 40, 40);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("Text", 19, 47 + 60 * 2 + 50/2);
-
-  fill(200);
-  rect(10, 50 + 180, 40, 40);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("Sma", 20, 46 + 60 * 3 + 29);
-
-  fill(200);
-  rect(10, 50 + 240, 40, 40);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("Fibb", 20, 45 + 60 * 4 + 29);
-
-  fill(200);
-  rect(10, 50 + 300, 40, 40);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("BB", 24,  46 + 60 * 5 + 29);
-  
-
-  if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= 50 && mouseY <= 50 + 40)) {
-    cursor(ARROW);
-    fill(220);
+    fill(200);
     rect(10, 50, 40, 40);
-    stroke(0);
     fill(0);
+    stroke(1);
+    textSize(10);
     text("Pen", 21, 47 + 50/2);
-    mouseOnButton = 1;
-  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60) && mouseY <= (50 + 60 + 40))) {
-    cursor(ARROW);
-    fill(220);
+  
+    fill(200);
     rect(10, 50 + 60, 40, 40);
-    textSize(10);
-    stroke(0);
     fill(0);
+    stroke(1);
+    textSize(10);
     text("Trend", 16, 47 + 60 + 50/2);
-    mouseOnButton = 2;
-  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 2) && mouseY <= (50 + 60 * 2 + 40))) {
-    cursor(ARROW);
-    fill(220);
+  
+    fill(200);
     rect(10, 50 + 120, 40, 40);
-    textSize(10);
-    stroke(0);
     fill(0);
+    stroke(1);
+    textSize(10);
     text("Text", 19, 47 + 60 * 2 + 50/2);
-    mouseOnButton = 3;
-  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 3) && mouseY <= (50 + 60 * 3 + 40))) {
-    cursor(ARROW);
-    fill(220);
+  
+    fill(200);
     rect(10, 50 + 180, 40, 40);
-    textSize(10);
-    stroke(0);
     fill(0);
+    stroke(1);
+    textSize(10);
     text("Sma", 20, 46 + 60 * 3 + 29);
-    mouseOnButton = 4;
-  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 4) && mouseY <= (50 + 60 * 4 + 40))) {
-    cursor(ARROW);
-    fill(220);
+  
+    fill(200);
     rect(10, 50 + 240, 40, 40);
-    textSize(10);
-    stroke(0);
     fill(0);
+    stroke(1);
+    textSize(10);
     text("Fibb", 20, 45 + 60 * 4 + 29);
-    mouseOnButton = 5;
-  } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 5) && mouseY <= (50 + 60 * 5 + 40))) {
-    cursor(ARROW);
-    fill(220);
+  
+    fill(200);
     rect(10, 50 + 300, 40, 40);
-    textSize(10);
-    stroke(0);
     fill(0);
+    stroke(1);
+    textSize(10);
     text("BB", 24,  46 + 60 * 5 + 29);
-    mouseOnButton = 6;
-  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
-    cursor(CROSS);
-    mouseOnButton = -1;
-  } else {
-    cursor(ARROW);
-    mouseOnButton = -1;
-  }
-  
-  Tools x = new Tools(mode, fpoint);
-  x.displayMarker();
-  x.displayText(saved);
-  x.displaySMA(instance.Candles);
-  
-  
-  if (shift == false) {
-    instance.buildYAxis(0);
-    instance.buildXAxis(0);
-  }
+    
+    if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= 50 && mouseY <= 50 + 40)) {
+      cursor(ARROW);
+      fill(220);
+      rect(10, 50, 40, 40);
+      stroke(0);
+      fill(0);
+      text("Pen", 21, 47 + 50/2);
+      mouseOnButton = 1;
+    } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60) && mouseY <= (50 + 60 + 40))) {
+      cursor(ARROW);
+      fill(220);
+      rect(10, 50 + 60, 40, 40);
+      textSize(10);
+      stroke(0);
+      fill(0);
+      text("Trend", 16, 47 + 60 + 50/2);
+      mouseOnButton = 2;
+    } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 2) && mouseY <= (50 + 60 * 2 + 40))) {
+      cursor(ARROW);
+      fill(220);
+      rect(10, 50 + 120, 40, 40);
+      textSize(10);
+      stroke(0);
+      fill(0);
+      text("Text", 19, 47 + 60 * 2 + 50/2);
+      mouseOnButton = 3;
+    } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 3) && mouseY <= (50 + 60 * 3 + 40))) {
+      cursor(ARROW);
+      fill(220);
+      rect(10, 50 + 180, 40, 40);
+      textSize(10);
+      stroke(0);
+      fill(0);
+      text("Sma", 20, 46 + 60 * 3 + 29);
+      mouseOnButton = 4;
+    } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 4) && mouseY <= (50 + 60 * 4 + 40))) {
+      cursor(ARROW);
+      fill(220);
+      rect(10, 50 + 240, 40, 40);
+      textSize(10);
+      stroke(0);
+      fill(0);
+      text("Fibb", 20, 45 + 60 * 4 + 29);
+      mouseOnButton = 5;
+    } else if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= (50 + 60 * 5) && mouseY <= (50 + 60 * 5 + 40))) {
+      cursor(ARROW);
+      fill(220);
+      rect(10, 50 + 300, 40, 40);
+      textSize(10);
+      stroke(0);
+      fill(0);
+      text("BB", 24,  46 + 60 * 5 + 29);
+      mouseOnButton = 6;
+    } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
+      cursor(CROSS);
+      mouseOnButton = -1;
+    } else {
+      cursor(ARROW);
+      mouseOnButton = -1;
+    }
+    
+    Tools x = new Tools(mode, fpoint);
+    x.displayMarker();
+    x.displayText(saved);
+    x.displaySMA(instance.Candles);
+    
+    if (shift == false) {
+      instance.buildYAxis(0);
+      instance.buildXAxis(0);
+    }
   }
 }
 
@@ -218,43 +211,38 @@ void mousePressed() {
   } else if (mouseOnButton == 4 && mode.equals("S.M.A")) {
     mode = "Pointer";
   }
-
   if ((mouseOnButton == 5 && mode.equals("Pointer"))) {
     mode = "Fib";
   } else if (mouseOnButton == 5 && mode.equals("Fib")) {
     mode = "Pointer";
   }
-  
   if ((mouseOnButton == 6 && mode.equals("Pointer"))) {
     mode = "Bollinger";
   } else if (mouseOnButton == 6 && mode.equals("Bollinger")) {
     mode = "Pointer";
   }
-  
   if (mouseOnButton == 7) {
     start = true;
     once = true;
     setup();
   }
-  
-  
 }
 
 void mouseDragged() {
-  
   int shiftX;
-    int shiftY;
-    if (mouseX > currX) {
-      shiftX = 7;
-    } else if (mouseX < currX) {
-      shiftX = -7;
-    } else shiftX = 0;
+  int shiftY;
+  if (mouseX > currX) {
+    shiftX = 7;
+  } else if (mouseX < currX) {
+    shiftX = -7;
+  } else shiftX = 0;
 
-    if (mouseY > currY) {
-      shiftY = 7;
-    } else if (mouseY < currY) {
-      shiftY = -7;
-    } else shiftY = 0;
+  if (mouseY > currY) {
+    shiftY = 7;
+  } else if (mouseY < currY) {
+    shiftY = -7;
+  } else shiftY = 0;
+  
   if (mode.equals("Pointer")) {
 
     instance.shiftCandles(shiftX, shiftY);
@@ -283,7 +271,6 @@ void mouseDragged() {
 }
 
 void keyPressed() {
-  
   if (start) {
     if (key == BACKSPACE){
       typing = "";
