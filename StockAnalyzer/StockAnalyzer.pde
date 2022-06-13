@@ -38,12 +38,12 @@ void draw() {
   if (start == false){
   buildLines();
   
-  fill(200);
-  rect(10, 5, 600, 30);
-  fill(0);
-  stroke(1);
-  textSize(10);
-  text("Return", 300, 30);
+  //fill(200);
+  //rect(10, 5, 600, 30);
+  //fill(0);
+  //stroke(1);
+  //textSize(10);
+  //text("Return", 300, 30);
 
   fill(0);
   stroke(1);
@@ -155,15 +155,17 @@ void draw() {
     fill(0);
     text("BB", 24,  46 + 60 * 5 + 29);
     mouseOnButton = 6;
-  } else if ((mouseX >= 10 && mouseX <= 610) && (mouseY >= 5 && mouseY <= 35)) {
-    fill(220);
-    rect(10, 5, 600, 30);
-    fill(0);
-    stroke(1);
-    textSize(10);
-    text("Return", 300, 30);
-    mouseOnButton = 7;
-  } else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
+  } 
+  //else if ((mouseX >= 10 && mouseX <= 610) && (mouseY >= 5 && mouseY <= 35)) {
+  //  fill(220);
+  //  rect(10, 5, 600, 30);
+  //  fill(0);
+  //  stroke(1);
+  //  textSize(10);
+  //  text("Return", 300, 30);
+  //  mouseOnButton = 7;
+  //} 
+  else if ((mouseX > 60 && mouseX < 60 + 1080) && (mouseY >= 40  && mouseY < 40 + 680)) {
     cursor(CROSS);
     mouseOnButton = -1;
   } else {

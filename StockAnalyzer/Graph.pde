@@ -67,6 +67,7 @@ public class Graph {
     if (ticker.equals("TSLA")) scale = 1;
     if (ticker.equals("AAPL")) scale = 5;
     if (ticker.equals("AMD")) scale = 7.5;
+    if (ticker.equals("AMC")) scale = 20;
     
     String[] lines = loadStrings(ticker + ".csv");
     for (int i = lines.length-1 ; i >= 0; i--) {
@@ -93,6 +94,9 @@ public class Graph {
     } else if (ticker.equals("AMD")){
       scaleY = -95;
       increment = 5;
+    } else if (ticker.equals("AMC")){
+      scaleY = -150;
+      increment = 2;
     }
     
    this.dateYCor += shift;
