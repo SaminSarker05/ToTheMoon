@@ -114,10 +114,10 @@ Samin - Helped Taee start developing new SMA tool
 
 Taee - Implemented bollinger bounds using standard deviation calculations
 
-Samin - Implemented bollinger bounds using standard deviation calculations
+Samin - Implemented bollinger bounds and SMA using standard deviation calculations
 
 6/12
 
 Taee - Fixed all bugs, worked on layout, final touches
 
-Samin - Implemented the starting menu 
+Samin - Implemented the starting menu, changed layout, incorporated more stock data
