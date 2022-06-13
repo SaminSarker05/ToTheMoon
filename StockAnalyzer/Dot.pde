@@ -16,7 +16,6 @@ public class Dot {
   }
   
   void plotPoint(int xCor, int yCor){
-    
     this.x  = xCor;
     this.y = yCor;
 
@@ -29,6 +28,5 @@ public class Dot {
       fill(255,255,255);
       circle(xCor, yCor, 1);
     }
-
   }
 }
