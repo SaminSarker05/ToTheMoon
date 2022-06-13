@@ -110,5 +110,14 @@ Taee - Started developing simple moving average tool
 Samin - Helped Taee start developing new SMA tool
 
 
+6/11
 
+Taee - Implemented bollinger bounds using standard deviation calculations
 
+Samin - Implemented bollinger bounds using standard deviation calculations
+
+6/12
+
+Taee - Fixed all bugs, worked on layout, final touches
+
+Samin - Implemented the starting menu 
