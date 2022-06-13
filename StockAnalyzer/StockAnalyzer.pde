@@ -31,7 +31,7 @@ void setup() {
 
 void draw() {
   if (start == false && once) {
-    instance.start(typing.substring(1));
+    instance.start(typing);
     once = false;
   }
   

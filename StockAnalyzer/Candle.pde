@@ -5,13 +5,17 @@ public class Candle {
   private double open;
   private double close;
   private float xcor;
+  //1200
   private float ycor = 1200 - getHeight();
+  private int scale;
   
-  public Candle(double high, double low, double open, double close) {
-    this.high = high;
-    this.low = low;
-    this.open = open;
-    this.close = close;
+  
+  public Candle(double high, double low, double open, double close, int scale) {
+    this.high = high * scale;
+    this.low = low * scale;
+    this.open = open * scale;
+    this.close = close * scale;
+    this.scale = scale;
   }
   
   void display(int xCor, int yCor) {
@@ -20,7 +24,8 @@ public class Candle {
       this.ycor = yCor;
     
       if (close >= open) {
-        float height = (float) (close - open);
+        float height = (float) (close - open) * 5;
+        //System.out.println(height);
         float topWick = (float) (high - close);
         float bottomWick = (float) (open - low);
         
@@ -32,7 +37,8 @@ public class Candle {
         line(xcor + candleWidth/2, ycor - topWick, xcor + candleWidth/2, ycor);
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       } else if (close < open){
-        float height = (float) (open - close);
+        float height = (float) (open - close) * 5;
+        //System.out.println(height);
         float topWick = (float) (high - open);
         float bottomWick = (float) (close-low);
         
@@ -52,6 +58,7 @@ public class Candle {
     
       if (close >= open) {
         float height = (float) (close - open);
+        System.out.println(height);
         float topWick = (float) (high - close);
         float bottomWick = (float) (open - low);
         
@@ -64,6 +71,7 @@ public class Candle {
         line(xcor + candleWidth/2, ycor + height , xcor + candleWidth/2, ycor  + height + bottomWick);
       } else if (close < open){
         float height = (float) (open - close);
+        System.out.println(height);
         float topWick = (float) (high - open);
         float bottomWick = (float) (close-low);
         

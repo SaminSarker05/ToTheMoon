@@ -8,6 +8,7 @@ public class Graph {
   private ArrayList<Dot> upper = new ArrayList<Dot>();
   private ArrayList<Dot> lower = new ArrayList<Dot>();
   private String ticker;
+  private int scale;
   
   int dateYCor = 40;
   int dateXCor = 990;
@@ -15,7 +16,7 @@ public class Graph {
   public Graph(){}
   
   void start(String ticker) {
-    this.ticker = ticker;
+    this.ticker = ticker.toUpperCase();
     
     fill(192,192,192);
     rect(60.0, 40.0, 1130.0, 695.0, 7);
@@ -50,8 +51,6 @@ public class Graph {
         upper.add(du);
         lower.add(dl);
         
-        
-        
         Dot d = new Dot(xcor, 1300 - (int) yAvgCor);
         dots.add(d);
         yAvgCor = 0;
@@ -63,6 +62,9 @@ public class Graph {
   }
   
   void retrieve(String ticker) {
+    scale = 1;
+    if (ticker.equals("TSLA")) scale = 1;
+    if (ticker.equals("AAPL")) scale = 5;
     
     String[] lines = loadStrings(ticker + ".csv");
     for (int i = lines.length-1 ; i >= 0; i--) {
@@ -72,18 +74,27 @@ public class Graph {
       float low = Float.parseFloat(data[3]);
       float close = Float.parseFloat(data[4]);
       String date = data[0];
-      Candle temp = new Candle(high, low, open, close);
+      Candle temp = new Candle(high, low, open, close, scale);
       Candles.add(temp);
       dates.add(date);
     } 
   }
   
   void buildYAxis(int shift) {
+    
+    int scaleY = 0;
+    int increment = 40;
+    
+    if (ticker.equals("AAPL")){
+      scaleY = 380;
+      increment = 10;
+    }
+    
    this.dateYCor += shift;
-   int high = (int) findHighestHigh();
+   int high = (int) findHighestHigh()/scale;
    high = Math.round(high/10.0) * 10; 
-   int ycor = dateYCor;
-   for (int i = high; i >= 0; i-= 40){
+   int ycor = dateYCor + scaleY;
+   for (int i = high; i >= 0; i-= increment){
      int colour = 0;
      if (ycor <= 70 || ycor >= 720){
        colour = 255;
@@ -92,8 +103,8 @@ public class Graph {
      text(i, 1150, ycor);
      ycor += 42;
    }
-   ycor = dateYCor;
-   for (int i = high; i <= 10000; i+= 40){
+   ycor = dateYCor + scaleY;
+   for (int i = high; i <= 10000; i+= increment){
      int colour = 0;
      if (ycor < 40 || ycor > 700){
        colour = 255;
