@@ -286,20 +286,19 @@ void keyPressed() {
   
   if (start) {
     if (key == BACKSPACE){
-      
-        
-       typing = typing.substring(0, typing.length()-1);
-       fill(255);
-       rect(200, 200, 100, 100);
-       stroke(255);
-       text(typing, 200, 200);
-      
+      typing = "";
+      setup();
     } else if (key == '\n') {
-      start = false;
-      ticker = typing;
+      if (!(typing.equals("tsla") || typing.equals("spy") || typing.equals("amd") || typing.equals("aapl") || typing.equals("nvda"))) {
+        typing = "";
+        setup();
+      } else {
+        start = false;
+        ticker = typing;
+      }
     } else {
+      stroke(0);
       typing += key;
-   
       text(typing, 100, 200);
     }
   }
