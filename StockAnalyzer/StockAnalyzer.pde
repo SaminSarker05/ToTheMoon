@@ -99,14 +99,6 @@ void draw() {
   stroke(1);
   textSize(10);
   text("BB", 24,  46 + 60 * 5 + 29);
-
-  fill(200);
-  rect(10, 50 + 360, 40, 40);
-  stroke(1);
-  
-  fill(200);
-  rect(10, 50 + 420, 40, 40);
-  stroke(1);
   
 
   if ((mouseX >= 10 && mouseX <= 50) && (mouseY >= 50 && mouseY <= 50 + 40)) {
@@ -229,7 +221,7 @@ void mousePressed() {
   }
   if ((mouseOnButton == 3 && mode.equals("Pointer"))) {
     mode = "TextBox";
-    System.out.println("here");
+    typing = "";
     stroke(0);
     fill(0);
     textSize(13); 

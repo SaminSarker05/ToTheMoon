@@ -24,8 +24,8 @@ public class Graph {
     stroke(255);
     line(5, 220, 55, 220 );
     
-    stroke(0);
-    rect(1195, 40, 200, 695, 6);
+    //stroke(0);
+    //rect(1195, 40, 200, 695, 6);
     
     int xcor = 1080;
     retrieve(this.ticker);
@@ -62,7 +62,6 @@ public class Graph {
   }
   
   void retrieve(String ticker) {
-    System.out.println(ticker);
     scale = 1;
     if (ticker.equals("TSLA")) scale = 1;
     if (ticker.equals("AAPL")) scale = 6;
@@ -170,8 +169,7 @@ public class Graph {
     rect(5, 40, 50, 695, 6);
     stroke(255);
     line(5, 220, 55, 220 );
-    stroke(0);
-    rect(1195, 40, 200, 695, 6);
+    
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -181,15 +179,13 @@ public class Graph {
   }
   
   void shiftCandlesAndPoints(int dirX, int dirY) {
-    background(192,192,192);
+     background(255);
     fill(192,192,192);
-    stroke(255);
-    rect(60.0, 40.0, 1130.0, 680.0, 7);
-    rect(5, 40, 50, 680, 6);
+    stroke(0);
+    rect(60.0, 40.0, 1130.0, 695.0, 7);
+    rect(5, 40, 50, 695, 6);
     stroke(255);
     line(5, 220, 55, 220 );
-    stroke(0);
-    rect(1195, 40, 200, 695, 6);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
@@ -213,15 +209,13 @@ public class Graph {
   }
   
   void shiftCandlesAndPointsTwo(int dirX, int dirY) {
-    background(192,192,192);
-    fill(200);
-    stroke(255);
-    rect(60.0, 40.0, 1080.0, 680.0, 7);
-    rect(5, 40, 50, 680, 6);
+     background(255);
+    fill(192,192,192);
+    stroke(0);
+    rect(60.0, 40.0, 1130.0, 695.0, 7);
+    rect(5, 40, 50, 695, 6);
     stroke(255);
     line(5, 220, 55, 220 );
-    stroke(0);
-    rect(1195, 40, 200, 695, 6);
     
     for (int i = 0; i < Candles.size(); i++){
       int currentX = Candles.get(i).getXCor();
