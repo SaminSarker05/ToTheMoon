@@ -6,7 +6,7 @@ Link to Prototype: https://docs.google.com/document/d/1pQFxh666HGTi9fJxpToamVlzw
 
 Run instructions: 
 
-	When the program first opens, it will present you with a menu of different stocks. Type in the ticker symbol for one of these stocks, and our program will open up the corresponding graph. 
+	When the program first opens, it will present you with a menu of different stocks. Type in the ticker symbol for one of these stocks, and our program will open up the corresponding graph. If you make a typo, press backspace and retype the ticker symbol. If you accidentally press enter after a typo, it will reset you.
 	
 	The default mode is the pointer mode. In this mode, you can drag the screen up, down, left, and right to look at different points in the stock’s history. The x and y coordinates will be displayed, and will change accordingly to your screen movements. There will be multiple buttons to the left side of the screen. Each of these buttons corresponds to a certain tool, such as marker and trendline. Clicking on one of these buttons will change the mode to the corresponding mode. You can revert back to the pointer mode by pressing the button a second time. 
 
