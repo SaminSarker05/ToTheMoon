@@ -3,6 +3,25 @@ Hi! This is team To The Moon. For this project, we are aiming to create a stock 
 
 Link to Prototype: https://docs.google.com/document/d/1pQFxh666HGTi9fJxpToamVlzwXdhTgp3B7jWdYR1Qh4/edit?usp=sharing
 
+
+Run instructions: 
+
+	When the program first opens, it will present you with a menu of different stocks. Type in the ticker symbol for one of these stocks, and our program will open up the corresponding graph. 
+	
+	The default mode is the pointer mode. In this mode, you can drag the screen up, down, left, and right to look at different points in the stock’s history. The x and y coordinates will be displayed, and will change accordingly to your screen movements. There will be multiple buttons to the left side of the screen. Each of these buttons corresponds to a certain tool, such as marker and trendline. Clicking on one of these buttons will change the mode to the corresponding mode. You can revert back to the pointer mode by pressing the button a second time. 
+
+  *Note: you can not switch directly between two tools. If you are in marker mode and you want to use the bollinger bound tool, you need to first click on the marker button to turn it off then click on the bollinger bound button to turn it on. 
+  
+  WHAT EACH OF THE TOOLS DO: 
+  
+    1) Marker: Press and drag the mouse around to make marker 
+    2) Trendline: Click once to plot your first point, then move your mouse and click again to plot the second point and draw the line between them
+    3) Text: Type in your desired text, click enter, then click on the screen at the location where you want the text to appear
+    4) SMA: Simply click on the button once to display the simple moving average line
+    5) Fib Retracement: This is similar to trendline; you are plotting two points. 
+    6) Bollinger Bound: click the button once and drag your mouse around a little to display the bollinger bounds. 
+
+
 Dev Log
 
 5/23
